@@ -39,3 +39,6 @@ README〜ER図作成：7/3〆
 メイン機能実装：7/4 - 8/8
 β版をRUNTEQ内リリース（MVP）：8/8〆切
 本番リリース：8月中
+
+# 画面遷移図 : https://www.figma.com/file/8YRAMZsQeleUAQX25yOhX8/cold_brew_app%EF%BC%88%E4%BB%AE%EF%BC%89%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0%3A1
+# ER図： 作成中
