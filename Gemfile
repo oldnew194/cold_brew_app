@@ -57,3 +57,5 @@ gem 'pry-byebug'
 gem 'rails-i18n'
 
 gem 'draper', '3.1.0'
+
+gem 'carrierwave', '2.0.2'
