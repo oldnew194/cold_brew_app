@@ -21,6 +21,10 @@ ja:
         body: '本文'
         article_image: 'サムネイル'
         user: '作成者'
+      store:
+        title: 'タイトル'
+        body: '本文'
+        store_image: 'サムネイル'
       administrator:
         email: メールアドレス
   enums:

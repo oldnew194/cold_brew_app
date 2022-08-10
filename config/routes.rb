@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'stores/index'
+  get 'stores/new'
+  get 'stores/create'
+  get 'stores/show'
   root 'static_pages#top'
 
   get 'static_pages/top'
