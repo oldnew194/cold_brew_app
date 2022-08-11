@@ -1,2 +1,35 @@
-<h1>Stores#show</h1>
-<p>Find me in app/views/stores/show.html.erb</p>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= @store.name %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag @store.store_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
+            </div>
+            <div class='col-md-9'>
+              <h4 style='display: inline;'>店舗名:<%= @store.name %></h4>
+              <%= render 'crud_menus', store: @store %>
+              <ul class="list-inline">
+                <li class="list-inline-item">住所:<%= @store.address %></li>
+                <li class="list-inline-item">TEL:<%= @store.tel %></li>
+                <li class="list-inline-item">定休日:<%= @store.closing_day %></li>
+                <li class="list-inline-item">営業時間:<%= @store.decorate.business_hours %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@store.area.name) %></p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <!-- コメントフォーム -->
+  <%= render 'comments/form', { store: @store, comment: @comment } %>
+
+
+  <!-- コメントエリア -->
+  <%= render 'comments/comments', { comments: @comments } %>
+</div>

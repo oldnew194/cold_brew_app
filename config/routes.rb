@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'stores/index'
-  get 'stores/new'
-  get 'stores/create'
-  get 'stores/show'
   root 'static_pages#top'
 
   get 'static_pages/top'
@@ -15,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :articles, only: %i[index new create]
-
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :stores, only: %i[index new create show] do
+    resources :comments, only: %i[create update destroy]
+  end
 end
