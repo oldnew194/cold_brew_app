@@ -20,3 +20,13 @@ Store.create!(name: 'ALL SEASONS COFFEE',  address: '東京都新宿区新宿2-7
 Store.create!(name: 'THE LOCAL TOKYO',  address: '東京都渋谷区神宮前5-30-3 ニューアートビル 2F', tel: '03-3409-8227', opening_hours: '12:00',closing_hours: '17:30,18:30', area_id: 1)
 Store.create!(name: 'Roasted COFFEE LABORATORY 渋谷神南店',  address: '東京都渋谷区神南1-6-3 フラッグ 1F', tel: '03-5428-3658', opening_hours: '9:00,10:00',closing_hours: '19:00', area_id: 1)
 Store.create!(name: 'ABOUT LIFE COFFEE BREWERS',  address: '東京都渋谷区道玄坂1-19-8', tel: '070-5587-5342', opening_hours: '8:30',closing_hours: '20:30', area_id: 1)
+
+Coffee.create!(producing_area: 'ブラジル')
+Coffee.create!(producing_area: 'コロンビア')
+Coffee.create!(producing_area: 'エチオピア')
+Coffee.create!(producing_area: 'ハワイ')
+Coffee.create!(producing_area: 'インドネシア')
+
+Feature.create!(feature_type: 'コーヒースタンド')
+Feature.create!(feature_type: 'テラス席あり')
+Feature.create!(feature_type: '喫煙可')

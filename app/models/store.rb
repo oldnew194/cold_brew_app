@@ -3,6 +3,7 @@ class Store < ApplicationRecord
   belongs_to :area
   has_many :articles, dependent: :destroy
   has_many :comments
+  has_many :store_features
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :address, length: { maximum: 255 }
