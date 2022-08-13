@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 2022_08_10_081251) do
     t.string "title", null: false
     t.text "body", null: false
     t.bigint "user_id", null: false
+    t.bigint "store_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "article_image"
+    t.index ["store_id"], name: "index_articles_on_store_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -65,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_08_10_081251) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "articles", "stores"
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "stores"
   add_foreign_key "comments", "users"

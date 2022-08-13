@@ -1,0 +1,26 @@
+<% content_for(:title, @article.title) %>
+<div class="container pt-5">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-3'>
+              <%= image_tag @article.article_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
+            </div>
+            <div class='col-md-9'>
+              <h3 class="d-inline"><%= @article.title %></h3>
+              <%= render 'crud_menus', article: @article if current_user.own?(@article) %>
+              <ul class="list-inline">
+                <li class="list-inline-item">by <%= @article.user.name %></li>
+                <li class="list-inline-item"><%= l @article.created_at, format: :long  %></li>
+              </ul>
+            </div>
+          </div>
+          <p><%= simple_format(@article.body) %></p>
+        </div>
+      </article>
+    </div>
+  </div>

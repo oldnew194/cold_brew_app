@@ -1,4 +1,8 @@
-<%= form_with model: article, local: true do |f| %>
+<%= form_with model: [@store, @article], local: true do |f| %>
+  <div class="form-group">
+    <%= t('store.name') %>
+    <%= @store.name %>
+  </div>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'form-control' %>

@@ -22,9 +22,14 @@ ja:
         article_image: 'サムネイル'
         user: '作成者'
       store:
-        title: 'タイトル'
-        body: '本文'
-        store_image: 'サムネイル'
+        name: '店舗名'
+        address: '住所'
+        tel: 'TEL'
+        closind_day: '定休日'
+        opening_hours: '開店時間'
+        closing_hours: '閉店時間'
+        business_hours: '営業時間'
+        store_image: '画像'
       administrator:
         email: メールアドレス
   enums:

@@ -7,9 +7,6 @@
             <%= link_to store.name, store_path(store) %>
         </h4>
         <%= render 'crud_menus', store: store %>
-        <div class='mr10 float-right'>
-          <a href="#"><%= icon 'fa', 'pen' %></a>
-        </div>
         <ul class="list-inline">
           <li class="list-inline-item">
             <%= store.area.name %>

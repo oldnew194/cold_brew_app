@@ -52,6 +52,23 @@ ja:
     bookmarks:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の掲示板がありません。'
+  stores:
+    index:
+      title: "店舗一覧"
+      no_result: '掲載されている店舗がありません。'
+    new:
+      name: '店舗名'
+      title: '店舗情報の登録'
+    show:
+      title: "%{name}の詳細"
+    edit:
+      title: '店舗情報の編集'
+    create:
+      success: '店舗情報を登録しました'
+      fail: '店舗情報を登録できませんでした'
+    bookmarks:
+      title: 'ブックマーク一覧'
+      no_result: 'ブックマーク中の店舗がありません。'
   bookmarks:
     create:
       success: 'ブックマークしました'

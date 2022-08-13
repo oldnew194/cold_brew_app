@@ -1,6 +1,7 @@
 class Store < ApplicationRecord
   mount_uploader :store_image, StoreImageUploader
   belongs_to :area
+  has_many :articles, dependent: :destroy
   has_many :comments
 
   validates :name, presence: true, length: { maximum: 255 }

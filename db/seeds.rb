@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name: 'runteq', email:'runteq@example.com',password: '1111',password_confirmation: '1111')
+User.create!(name: 'runteq2', email:'runteq2@example.com',password: '2222',password_confirmation: '2222')
+User.create!(name: 'runteq3', email:'runteq3@example.com',password: '3333',password_confirmation: '3333')
 
 Area.create!(name: '渋谷')
 Area.create!(name: '新宿')

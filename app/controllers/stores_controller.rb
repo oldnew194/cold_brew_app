@@ -13,6 +13,8 @@ class StoresController < ApplicationController
   def show
     #binding.pry
     @store = Store.find(params[:id])
+    #@article = Article.new
+    #@articles = Article.where(article_id:params[:id])
     @comment = Comment.new
     @comments = @store.comments.includes(:user).order(created_at: :desc)
   end
