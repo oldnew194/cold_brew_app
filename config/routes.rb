@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'
@@ -9,5 +11,12 @@ Rails.application.routes.draw do
   resources :stores, only: %i[index new create show] do
     resources :articles
     resources :comments, only: %i[create update destroy]
+
+    collection do
+      get 'favorites'
+    end
   end
+
+  resources :favorites, only: %i[create destroy]
+
 end

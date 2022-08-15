@@ -7,10 +7,6 @@
           <%= link_to article.title, store_article_path(@store, article) %>
         </h4>
         <%= render 'crud_menus', store: @store, article: article if current_user.own?(article) %>
-
-        <p><%= article.store.name %></p>
-        <p><%= simple_format(article.store.area.name) %></p>
-
         <ul class="list-inline">
           <li class="list-inline-item">
             <%= icon 'far', 'user' %>
@@ -21,6 +17,7 @@
             <%= l article.created_at, format: :long %>
           </li>
         </ul>
+        <p class="card-text"><%= article.body %></p>
       </div>
     </div>
   </div>

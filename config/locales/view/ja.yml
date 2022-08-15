@@ -49,7 +49,7 @@ ja:
     create:
       success: '掲示板を作成しました'
       fail: '掲示板を作成できませんでした'
-    bookmarks:
+    favorites:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の掲示板がありません。'
   stores:
@@ -66,10 +66,10 @@ ja:
     create:
       success: '店舗情報を登録しました'
       fail: '店舗情報を登録できませんでした'
-    bookmarks:
+    favorites:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の店舗がありません。'
-  bookmarks:
+  favorites:
     create:
       success: 'ブックマークしました'
     destroy:

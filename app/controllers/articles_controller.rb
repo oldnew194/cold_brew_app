@@ -48,6 +48,10 @@ class ArticlesController < ApplicationController
     redirect_to store_articles_path(@store), success: t('defaults.message.deleted', item: article.model_name.human)
   end
 
+  def bookmarks
+    @bookmark_articles = current_user.bookmark_articles.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def article_params

@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   has_many :comments
+  has_many :favorites
+  has_many :favorites_stores, through: :favorites, source: :store
 
   validates :email, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 255 }
@@ -12,6 +14,18 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def favorite(store)
+    favorites_stores << store
+  end
+
+  def unfavorite(store)
+    favorites_stores.destroy(store)
+  end
+
+  def favorite?(store)
+    favorites_stores.include?(store)
   end
   
 end
