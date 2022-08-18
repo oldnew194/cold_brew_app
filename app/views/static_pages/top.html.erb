@@ -1,6 +1,43 @@
+<div class="top-inner-text">
+  <h4>味覚メーター</h4>
+    まろやか<input type="range" id="range" min="0" max="10" step="0.5" value="5", list="my-datalist">フルーティ
+    <datalist id="my-datalist">
+      <option value="0.0">
+      <option value="1.0">
+      <option value="2.0">
+      <option value="3.0">
+      <option value="4.0">
+      <option value="5.0">
+      <option value="6.0">
+      <option value="7.0">
+      <option value="8.0">
+      <option value="9.0">
+      <option value="10.0">
+    </datalist>
+    <span id="value">5</span>
+    <script>
+      var elem = document.getElementById('range');
+      var target = document.getElementById('value');
+      var rangeValue = function (elem, target) {
+        return function(evt){
+          target.innerHTML = elem.value;
+        }
+      }
+      elem.addEventListener('input', rangeValue(elem, target));
+    </script>
+</div>
+
+
+
 <div class="top-wrapper">
   <div class="top-inner-text">
     <h1>Cold Brew/Crew</h1>
+    <section class="demo">
+      <input type="range" multiple="" value="0,100" class="multirange original">
+      <input type="range" multiple="" value="0,100" class="multirange ghost" style="--low:1%; --high:99%;">
+      <input type="range" multiple value="10,80" />
+      <input type="range" id="range" min="0" max="10" step="1" value="5">
+    </section>
     <h3> エリアから探す</h3>
       <a href= "#">
         <div class="col-md-4">
