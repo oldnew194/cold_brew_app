@@ -4,8 +4,9 @@ class ArticlesController < ApplicationController
    before_action :set_store, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   def index
-    @stores = Store.all
-    @articles = Article.all.includes(:user).order(created_at: :desc)
+    #binding.pry
+    #@stores = Store.all
+    @articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc)
   end
 
   def new

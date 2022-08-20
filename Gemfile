@@ -61,3 +61,5 @@ gem 'draper', '3.1.0'
 gem 'carrierwave', '2.0.2'
 
 gem 'faker'
+
+gem 'ransack'

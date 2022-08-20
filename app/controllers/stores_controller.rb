@@ -1,7 +1,9 @@
 class StoresController < ApplicationController
 
   def index
-    @stores = Store.all.order(created_at: :desc)
+    @q = Store.ransack(params[:q])
+    #@stores = Store.all.order(created_at: :desc)
+    @stores = @q.result(distinct: true).order(created_at: :desc)
   end
 
   def new
@@ -20,7 +22,10 @@ class StoresController < ApplicationController
   end
 
   def favorites
-    @favorite_stores = current_user.favorites_stores.includes(:user).order(created_at: :desc)
+    #binding.pry
+    @q = current_user.favorites_stores.ransack(params[:q])
+    #@favorite_stores = current_user.favorites_stores.includes(:user).order(created_at: :desc)
+    @favorite_stores = @q.result(distinct: true).includes(:user).order(created_at: :desc)
   end
 
   private

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :stores, only: %i[index new create show] do
-    resources :articles
+    resources :articles, only: %i[index new create show edit]
     resources :comments, only: %i[create update destroy]
 
     collection do
