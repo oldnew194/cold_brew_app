@@ -1,11 +1,11 @@
 <ul class='crud-menu-btn list-inline float-right'>
   <li class="list-inline-item">
-    <%= link_to '#', id: "button-edit-#{store.id}" do %>
+    <%= link_to edit_store_path(store), id: "button-edit-#{store.id}" do %>
       <%= icon 'fa', 'pen' %>
     <% end %>
   </li>
   <li class="list-inline-item">
-    <%= link_to '#', id: "button-delete-#{store.id}" do %>
+    <%= link_to store_path(store), id: "button-delete-#{store.id}", method: :delete, data: { confirm: t('defaults.message.delete_confirm') } do %>
       <%= icon 'fas', 'trash' %>
     <% end %>
   </li>

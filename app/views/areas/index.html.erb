@@ -1,0 +1,20 @@
+<h1>Areas#index</h1>
+<p>Find me in app/views/areas/index.html.erb</p>
+
+
+<% @areas.each do |area| %>
+  <div class="col-sm-12 col-lg-4 mb-3">
+    <div id="area-id-<%= area.id %>">
+      <div class="card">
+
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= area.name %>
+          </h4>
+          <%= link_to "編集", edit_area_path(area.id) %>
+          <%= link_to "削除", area_path(area.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }  %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

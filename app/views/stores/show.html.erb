@@ -12,7 +12,9 @@
             </div>
             <div class='col-md-9'>
               <h4 style='display: inline;'>店舗名:<%= @store.name %></h4>
-              <%= render 'crud_menus', store: @store %>
+              <% if logged_in? %>
+                <%= render 'crud_menus', store: @store %>
+              <% end %>
               <ul class="list-inline">
                 <li class="list-inline-item">住所:<%= @store.address %></li>
                 <li class="list-inline-item">TEL:<%= @store.tel %></li>
@@ -21,6 +23,9 @@
               </ul>
             </div>
           </div>
+          <% @store.features.each do |feature| %>
+            <span><%= feature.feature_type %></span>
+          <% end %>
           <p><%= simple_format(@store.area.name) %></p>
         </div>
       </article>
@@ -33,17 +38,15 @@
       <%= link_to "#{@store.name} の投稿記事を見る", store_articles_path(@store) %>
     </div>
   </div>
-
-  <div class="row mb-3">
-    <div class="col-lg-8 offset-lg-2">
-      <%= link_to '記事を投稿する', new_store_article_path(@store) %>
+  <% if logged_in? %>
+    <div class="row mb-3">
+      <div class="col-lg-8 offset-lg-2">
+        <%= link_to '記事を投稿する', new_store_article_path(@store) %>
+      </div>
     </div>
-  </div>
-
-  <!-- コメントフォーム -->
-  <%= render 'comments/form', { store: @store, comment: @comment } %>
-
-
-  <!-- コメントエリア -->
-  <%= render 'comments/comments', { comments: @comments } %>
+    <!-- コメントフォーム -->
+    <%= render 'comments/form', { store: @store, comment: @comment } %>
+    <!-- コメントエリア -->
+    <%= render 'comments/comments', { comments: @comments } %>
+  <% end %>
 </div>

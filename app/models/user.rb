@@ -2,8 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :articles, dependent: :destroy
-  has_many :comments
-  has_many :favorites
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   has_many :favorites_stores, through: :favorites, source: :store
 
   validates :email, uniqueness: true, presence: true

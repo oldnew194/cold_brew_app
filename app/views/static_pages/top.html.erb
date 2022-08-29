@@ -2,89 +2,51 @@
 <div class="top-wrapper">
   <div class="top-inner-text">
     <h1>Cold Brew/Crew</h1>
-    <div class="top-inner-text">
-      <%= search_form_for @search, url: stores_path do |f| %>
-        <dt><%= f.text_field :name_cont ,placeholder: '検索するテキストを入力...' %></dt>
-        <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
-      <% end %>
-    <h4>味覚メーター</h4>
-    まろやか<input type="range" id="range" min="0" max="10" step="0.5" value="5", list="my-datalist">フルーティ
-    <datalist id="my-datalist">
-      <option value="0.0">
-      <option value="1.0">
-      <option value="2.0">
-      <option value="3.0">
-      <option value="4.0">
-      <option value="5.0">
-      <option value="6.0">
-      <option value="7.0">
-      <option value="8.0">
-      <option value="9.0">
-      <option value="10.0">
-    </datalist>
-    <span id="value">5</span>
-    <script>
-      var elem = document.getElementById('range');
-      var target = document.getElementById('value');
-      var rangeValue = function (elem, target) {
-        return function(evt){
-          target.innerHTML = elem.value;
-        }
-      }
-      elem.addEventListener('input', rangeValue(elem, target));
-    </script>
-</div>
-    
+    <br>
+    <h3>店名から探す</h3>
+    <%= search_form_for @search, url: stores_path do |f| %></h3>
+      <h3><%= f.text_field :name_cont ,placeholder: '店名を入力してください' %></h3>
+      <h3><%= f.submit ("検索") , class: 'search-btn'%></h3>
+    <% end %>
+
     <section class="demo">
       <input type="range" multiple="" value="0,100" class="multirange original">
       <input type="range" multiple="" value="0,100" class="multirange ghost" style="--low:1%; --high:99%;">
       <input type="range" multiple value="10,80" />
       <input type="range" id="range" min="0" max="10" step="1" value="5">
     </section>
-    <h3> エリアから探す</h3>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">渋谷</h4>
-        </div>
-      </a>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">新宿</h4>
-        </div>
-      </a>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">池袋</h4>
-        </div>
-      </a>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">表参道</h4>
-        </div>
-      </a>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">代官山</h4>
-        </div>
-      </a>
-    </h3>
-    <h3> 特徴から探す</h3>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">コーヒースタンド</h4>
-        </div>
-      </a>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">テラス席あり</h4>
-        </div>
-      </a>
-      <a href= "#">
-        <div class="col-md-4">
-          <h4 class ="col-md-12">喫煙可</h4>
-         </div>
-      </a>
-    </h3>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h3>エリアから探す</h3>
+          <h3><%= link_to '渋谷', '/areas/1' %></h3>
+          <h3><%= link_to '新宿', '/areas/2' %></h3>
+          <h3><%= link_to '池袋', '/areas/3' %></h3>
+          <h3><%= link_to '表参道', '/areas/4' %></h3>
+          <h3><%= link_to '代官山', '/areas/5' %></h3>
+          <h4>随時追加します！<h4>
+        </h3>
+      </div>
+      <div class="col-md-4">
+        <h3>特徴から探す</h3>
+          <h3><%= link_to 'コーヒースタンド', '/features/1' %></h3>
+          <h3><%= link_to 'テラス席あり', '/features/2' %></h3>
+          <h3><%= link_to '喫煙可', 'features/3' %></h3>
+          <h4>随時追加します！<h4>
+        </h3>
+      </div>
+      <div class="col-md-4">
+        <h3>コーヒー豆の産地から探す</h3>
+          <h3><%= link_to 'エチオピア', '#' %></h3>
+          <h3><%= link_to 'コロンビア', '#' %></h3>
+          <h3><%= link_to 'ブラジル', '#' %></h3>
+          <h3><%= link_to 'インドネシア', '#' %></h3>
+          <h3><%= link_to 'グアテマラ', '#' %></h3>
+          <h4>随時追加します！<h4>
+          <h3>
+        </h3>
+      </div>
+    </div>
   </div>
 </div>
 

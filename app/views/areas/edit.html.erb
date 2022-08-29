@@ -1,0 +1,9 @@
+<% content_for(:name, @area.name) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.name') %></h1>
+      <%= render 'form', area: @area %>
+    </div>
+  </div>
+</div>

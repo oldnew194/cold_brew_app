@@ -1,0 +1,24 @@
+
+<% features.stores.each do |store| %>
+  <div class="col-sm-12 col-lg-4 mb-3">
+    <div id="stores-ids-<%= @stores.ids %>">
+      <div class="card">
+        <%= image_tag store.store_image_url, class: 'card-img-top', size: '300x200' %>
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= link_to store.name, store_path(store.id) %>
+          </h4>
+          <% if logged_in? %>
+            <%= render 'crud_menus', store: store %>
+            <%= render 'favorite_button', store: store %>
+          <% end %>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <%= @feature.feature_type %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

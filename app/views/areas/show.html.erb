@@ -1,0 +1,19 @@
+<h1>Areas#show</h1>
+<h1>ここは <%= @area.id %>で、<%= @area.name %> の該当ページです</h1>
+<p>Find me in app/views/areas/show.html.erb</p>
+
+<%= @area.stores.name %>
+
+<% content_for(:title, t('.title')) %>
+<div class="container pt-3">
+   
+
+   <!-- 掲示板一覧 -->
+   <div class="row">
+     <div class="col-12">
+       <div class="row">
+          <%= render 'area' , { area: @area, stores: @stores } %> 
+       </div>
+     </div>
+   </div>
+ </div>

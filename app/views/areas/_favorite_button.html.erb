@@ -1,0 +1,5 @@
+<% if current_user.favorite?(store) %>
+  <%= render 'unfavorite', { store: store } %>
+<% else %>
+  <%= render 'favorite', { store: store } %>
+<% end %>

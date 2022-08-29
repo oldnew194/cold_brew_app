@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :users, only: %i[new create]
-  resources :stores, only: %i[index new create show] do
-    resources :articles, only: %i[index new create show edit]
+  resources :stores, only: %i[index new create show edit update destroy] do
+    resources :articles, only: %i[index new create show edit update destroy]
     resources :comments, only: %i[create update destroy]
 
     collection do
@@ -17,4 +17,7 @@ Rails.application.routes.draw do
 
   resources :favorites, only: %i[create destroy]
 
+  resources :areas, only: %i[index show new edit update create destroy]
+  resources :features, only: %i[index show new edit update create destroy]
+  resources :coffees, only: %i[index show new edit update create destroy]
 end

@@ -1,0 +1,16 @@
+## /Users/user/pf/cold_brew_app/app/views/articles/_form.html.erb
+## formにこーひーの種類を選択させる機能
+<div class='form-group'>
+<%= f.collection_check_boxes(:cofffee_ids, Coffee.all, :id, :producing_area) do |tag| %>
+  <div class='form-check'>
+      <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+      <% end %>
+    </div>
+<% end %>
+
+## /Users/user/pf/cold_brew_app/app/views/articles/_article.html.erb
+  <% article.coffees.each do |coffee| %>
+  <span><%= coffee.producing_area %></span>
+<% end %>
