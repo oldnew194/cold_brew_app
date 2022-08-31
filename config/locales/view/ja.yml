@@ -74,6 +74,11 @@ ja:
       success: 'ブックマークしました'
     destroy:
       success: 'ブックマークを外しました' 
+  likes:
+    create:
+      success: 'いいね！しました'
+    destroy:
+      success: 'いいね！を外しました' 
   profiles:
     show:
       title: 'プロフィール'

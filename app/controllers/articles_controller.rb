@@ -51,6 +51,10 @@ class ArticlesController < ApplicationController
     @bookmark_articles = current_user.bookmark_articles.includes(:user).order(created_at: :desc)
   end
 
+  def likes
+    @articles = current_user.likes_articles
+  end
+
   private
 
   def article_params

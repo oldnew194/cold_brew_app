@@ -1,0 +1,24 @@
+<h1>Liked Articles</h1>
+
+<table>
+   <thead>
+       <tr>
+           <th>Auther</th>>
+           <th>Title</th>
+           <th>Content</th>
+       <th colspan="3"></th>
+   </tr>
+   </thead>
+
+   <tbody>
+       <% @articles.each do |article| %>
+       <tr>
+           <td><%= article.user.full_name %></td>
+           <td><%= article.title %></td>
+           <td><%= article.content %></td>
+           <td><%= link_to 'Show', article %></td>
+       </tr>
+       <% end %>
+   </tbody>
+</table>
+<%= link_to 'Back', store_articles_path %>

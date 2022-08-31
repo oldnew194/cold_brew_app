@@ -2,6 +2,9 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :articles, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :likes_articles, through: :likes, source: :article
+
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorites_stores, through: :favorites, source: :store
@@ -14,6 +17,18 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def like(article)
+    likes_articles << article
+  end
+
+  def unlike(article)
+    likes_articles.destroy(article)
+  end
+
+  def like?(article)
+    likes_articles.include?(article)
   end
 
   def favorite(store)
