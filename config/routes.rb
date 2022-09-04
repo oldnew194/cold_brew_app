@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'likes/create'
-  get 'likes/destroy'
   root 'static_pages#top'
 
   get 'login', to: 'user_sessions#new'
@@ -14,6 +12,9 @@ Rails.application.routes.draw do
     end
     resources :comments, only: %i[create update destroy]
     resources :articles, only: %i[index new create show edit update destroy] do
+      collection do
+        get 'search'
+      end
       resources :likes, only: %i[create destroy]
       collection do
         get :likes
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :favorites, only: %i[create destroy]
+  resources :likes, only: %i[create destroy]
 
   resources :areas, only: %i[index show new edit update create destroy]
   resources :features, only: %i[index show new edit update create destroy]

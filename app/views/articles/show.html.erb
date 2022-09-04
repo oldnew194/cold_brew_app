@@ -12,6 +12,7 @@
             </div>
             <div class='col-md-9'>
               <h3 class="d-inline"><%= @article.title %></h3>
+              <h3 class="d-inline"><%= @article.rate %></h3>
               <% if logged_in? %>
               <%= render 'crud_menus', article: @article if current_user.own?(@article) %>
               <% end %>

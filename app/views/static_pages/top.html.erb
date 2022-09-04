@@ -4,18 +4,23 @@
     <h1>Cold Brew/Crew</h1>
     <br>
     <h3>店名から探す</h3>
-    <%= search_form_for @search, url: stores_path do |f| %></h3>
+    <%= search_form_for @search_store, url: stores_path do |f| %></h3>
       <h3><%= f.text_field :name_cont ,placeholder: '店名を入力してください' %></h3>
-      <h3><%= f.submit ("検索") , class: 'search-btn'%></h3>
+      <%= f.submit class: 'btn btn-primary' %>
     <% end %>
-
-    <section class="demo">
-      <input type="range" multiple="" value="0,100" class="multirange original">
-      <input type="range" multiple="" value="0,100" class="multirange ghost" style="--low:1%; --high:99%;">
-      <input type="range" multiple value="10,80" />
-      <input type="range" id="range" min="0" max="10" step="1" value="5">
-    </section>
-
+    <br>
+    <h3>味の評価から探す</h3>
+    <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
+      <%= f.label :rate_eq, '評価' %>
+      <%= f.radio_button :rate_eq, '' %>指定しない
+      <%= f.radio_button :rate_eq, '1.0' %>1.0
+      <%= f.radio_button :rate_eq, '2.0' %>2.0
+      <%= f.radio_button :rate_eq, '3.0' %>3.0
+      <%= f.radio_button :rate_eq, '4.0' %>4.0
+      <%= f.radio_button :rate_eq, '5.0' %>5.0
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  
     <div class="row">
       <div class="col-md-4">
         <h3>エリアから探す</h3>
@@ -33,17 +38,6 @@
           <h3><%= link_to 'テラス席あり', '/features/2' %></h3>
           <h3><%= link_to '喫煙可', 'features/3' %></h3>
           <h4>随時追加します！<h4>
-        </h3>
-      </div>
-      <div class="col-md-4">
-        <h3>コーヒー豆の産地から探す</h3>
-          <h3><%= link_to 'エチオピア', '#' %></h3>
-          <h3><%= link_to 'コロンビア', '#' %></h3>
-          <h3><%= link_to 'ブラジル', '#' %></h3>
-          <h3><%= link_to 'インドネシア', '#' %></h3>
-          <h3><%= link_to 'グアテマラ', '#' %></h3>
-          <h4>随時追加します！<h4>
-          <h3>
         </h3>
       </div>
     </div>

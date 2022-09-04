@@ -6,10 +6,20 @@
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <%= search_form_for @search, url: stores_path do |f| %>
-      <dt><%= f.text_field :name_cont ,placeholder: '検索するテキストを入力...' %></dt>
-      <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
+    店名から探す
+    <%= search_form_for @search_store, url: stores_path do |f| %>
+      <%= f.text_field :name_cont ,placeholder: '検索するテキストを入力...' %>
+      <%= f.submit ("検索") , class: 'search-btn'%>
+    <% end %>
+    <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
+      <%= f.label :rate_eq, '味の評価から探す' %>
+      <%= f.radio_button :rate_eq, '' %>指定しない
+      <%= f.radio_button :rate_eq, '1.0' %>1.0
+      <%= f.radio_button :rate_eq, '2.0' %>2.0
+      <%= f.radio_button :rate_eq, '3.0' %>3.0
+      <%= f.radio_button :rate_eq, '4.0' %>4.0
+      <%= f.radio_button :rate_eq, '5.0' %>5.0
+      <%= f.submit ("検索") , class: 'search-btn'%>
     <% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">

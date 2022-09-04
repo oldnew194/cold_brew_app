@@ -24,9 +24,9 @@
             </div>
           </div>
           <% @store.features.each do |feature| %>
-            <span><%= feature.feature_type %></span>
+            <span><%= link_to feature.feature_type, feature_path(feature) %></span>
           <% end %>
-          <p><%= simple_format(@store.area.name) %></p>
+          <p><%= link_to @store.area.name, area_path(@store.area) %></p>
         </div>
       </article>
     </div>
@@ -44,9 +44,6 @@
         <%= link_to '記事を投稿する', new_store_article_path(@store) %>
       </div>
     </div>
-    <!-- コメントフォーム -->
-    <%= render 'comments/form', { store: @store, comment: @comment } %>
-    <!-- コメントエリア -->
-    <%= render 'comments/comments', { comments: @comments } %>
+    
   <% end %>
 </div>

@@ -3,10 +3,12 @@ class ArticlesController < ApplicationController
    before_action :find_article, only: [:edit, :update, :destroy]
    before_action :set_store, only: [:index, :new, :create, :show, :edit, :update, :destroy]
    before_action :set_coffee, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+   before_action :set_q, only: [:index, :search]
 
   def index
     #binding.pry
     #@stores = Store.all
+    #@q = Article.ransack(params[:q])
     @article = Article.new
     @articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc)
   end
@@ -55,10 +57,18 @@ class ArticlesController < ApplicationController
     @articles = current_user.likes_articles
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
 
+  def set_q
+    @q = Article.ransack(params[:q])
+  end
+
   def article_params
-    params.require(:article).permit(:title, :body, :article_image, :article_image_cache).merge(store_id: params[:store_id])
+    params.require(:article).permit(:title, :body, :article_image, :article_image_cache, :rate).merge(store_id: params[:store_id])
   end
 
   def find_article

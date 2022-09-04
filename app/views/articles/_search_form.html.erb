@@ -1,0 +1,15 @@
+<%= search_form_for @q, url: url do |f| %>
+  <div class="input-group mb-3">
+    <%= f.label :rate_eq, '評価' %>
+    <%= f.radio_button :rate_eq, '' %>指定しない
+    <%= f.radio_button :rate_eq, '1.0' %>1.0
+    <%= f.radio_button :rate_eq, '2.0' %>2.0
+    <%= f.radio_button :rate_eq, '3.0' %>3.0
+    <%= f.radio_button :rate_eq, '4.0' %>4.0
+    <%= f.radio_button :rate_eq, '5.0' %>5.0
+
+    <div class="input-group-append">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
