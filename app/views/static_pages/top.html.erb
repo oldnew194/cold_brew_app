@@ -8,7 +8,6 @@
       <h3><%= f.text_field :name_cont ,placeholder: '店名を入力してください' %></h3>
       <%= f.submit class: 'btn btn-primary' %>
     <% end %>
-    <br>
     <h3>味の評価から探す</h3>
     <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
       <%= f.label :rate_eq, '評価' %>
@@ -20,7 +19,6 @@
       <%= f.radio_button :rate_eq, '5.0' %>5.0
       <%= f.submit class: 'btn btn-primary' %>
     <% end %>
-  
     <div class="row">
       <div class="col-md-4">
         <h3>エリアから探す</h3>
@@ -29,7 +27,7 @@
           <h3><%= link_to '池袋', '/areas/3' %></h3>
           <h3><%= link_to '表参道', '/areas/4' %></h3>
           <h3><%= link_to '代官山', '/areas/5' %></h3>
-          <h4>随時追加します！<h4>
+          
         </h3>
       </div>
       <div class="col-md-4">
@@ -37,7 +35,7 @@
           <h3><%= link_to 'コーヒースタンド', '/features/1' %></h3>
           <h3><%= link_to 'テラス席あり', '/features/2' %></h3>
           <h3><%= link_to '喫煙可', 'features/3' %></h3>
-          <h4>随時追加します！<h4>
+          
         </h3>
       </div>
     </div>

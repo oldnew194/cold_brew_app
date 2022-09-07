@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
    #before_action :require_login only: [:new, :create, :edit, :update, :destory]
    before_action :find_article, only: [:edit, :update, :destroy]
-   before_action :set_store, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+   before_action :set_store, only: [:index, :new, :create, :show, :edit, :update, :destroy, :likes]
    before_action :set_coffee, only: [:index, :new, :create, :show, :edit, :update, :destroy]
    before_action :set_q, only: [:index, :search]
 

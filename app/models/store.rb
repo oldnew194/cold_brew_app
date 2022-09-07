@@ -5,6 +5,7 @@ class Store < ApplicationRecord
   has_many :comments
   has_many :store_features, dependent: :destroy
   has_many :features, through: :store_features, source: :feature
+  
   has_many :favorites, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 255 }

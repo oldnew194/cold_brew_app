@@ -67,8 +67,8 @@ class StoresController < ApplicationController
   def favorites
     #binding.pry
     @q = current_user.favorites_stores.ransack(params[:q])
-    #@favorite_stores = current_user.favorites_stores.includes(:user).order(created_at: :desc)
-    @favorite_stores = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    #@favorite_stores = current_user.favorites_stores.order(created_at: :desc)
+    @favorite_stores = @q.result(distinct: true).order(created_at: :desc)
   end
 
   def features_save(feature_list)

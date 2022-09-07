@@ -15,9 +15,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    #@user = current_user.find(params[:id])
+    
+    @articles = current_user.articles.reverse_order
+    @likes_articles = current_user.likes_articles
+    @stores = current_user.favorites_stores
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :nameß)
   end
+
 end
