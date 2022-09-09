@@ -63,3 +63,5 @@ gem 'carrierwave', '2.0.2'
 gem 'faker'
 
 gem 'ransack'
+
+gem 'kaminari'

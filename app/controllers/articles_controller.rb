@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
     #@stores = Store.all
     #@q = Article.ransack(params[:q])
     @article = Article.new
-    @articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc)
+    @articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
   end
 
   def likes
-    @articles = current_user.likes_articles
+    @articles = current_user.likes_articles.order(created_at: :desc).page(params[:page])
   end
 
   def search

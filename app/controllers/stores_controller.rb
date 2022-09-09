@@ -4,7 +4,7 @@ class StoresController < ApplicationController
 
   def index
     @q = Store.ransack(params[:q])
-    @stores = @q.result(distinct: true).order(created_at: :desc)
+    @stores = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
     @store = Store.new
 
     if params[:feature_ids]
@@ -68,7 +68,7 @@ class StoresController < ApplicationController
     #binding.pry
     @q = current_user.favorites_stores.ransack(params[:q])
     #@favorite_stores = current_user.favorites_stores.order(created_at: :desc)
-    @favorite_stores = @q.result(distinct: true).order(created_at: :desc)
+    @favorite_stores = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
   end
 
   def features_save(feature_list)
