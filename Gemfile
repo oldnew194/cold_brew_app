@@ -65,3 +65,5 @@ gem 'faker'
 gem 'ransack'
 
 gem 'kaminari'
+
+gem 'gretel'

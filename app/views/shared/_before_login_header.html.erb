@@ -9,7 +9,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <%= search_form_for @search, url: stores_path do |f| %>
+    <%= search_form_for @search_store, url: stores_path do |f| %>
       <dt><%= f.text_field :name_cont ,placeholder: '検索するテキストを入力...' %></dt>
       <dd><%= f.submit ("検索") , class: 'search-btn'%></dd>
     <% end %>

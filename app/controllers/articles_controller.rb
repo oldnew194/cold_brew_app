@@ -78,6 +78,7 @@ class ArticlesController < ApplicationController
 
   def set_store
     @store = Store.find(params[:store_id])
+    #binding.pry
   end
 
   def set_coffee
