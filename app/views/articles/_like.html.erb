@@ -1,3 +1,7 @@
-<%= link_to store_article_likes_path(article_id: article.id), method: :post do %>
+<%= link_to store_article_likes_path(article_id: article.id),
+            id: "js-like-button-for-article-#{article.id}",
+            class:"float-right",
+            method: :post,
+            remote: true do %>
   <%= icon 'far', 'heart' %>
 <% end %>
