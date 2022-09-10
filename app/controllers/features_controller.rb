@@ -1,5 +1,6 @@
 class FeaturesController < ApplicationController
   #before_action :set_store, only: [:index, :new, :show, :create, :show, :edit, :update, :destroy]
+  before_action :check_admin, only: %i[new edit create update destroy]
 
   def index
     @stores = Store.all
@@ -9,6 +10,8 @@ class FeaturesController < ApplicationController
   def new
     @feature = Feature.new
   end
+
+  def edit; end
 
   def create
   end
@@ -20,6 +23,21 @@ class FeaturesController < ApplicationController
     @feature = Feature.find(params[:id])
     #binding.pry
     @stores = @feature.stores
+    @features_count = @stores.count
+  end
+
+  def update
+    if @feature.update(feature_params)
+      redirect_to features_path, success: t('defaults.message.updated', item: Feature.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: Feature.model_name.human)
+      render :edit
+    end
+  end
+
+  def destroy
+    @area.destroy!
+    redirect_to features_path, success: t('defaults.message.deleted', item: Feature.model_name.human)
   end
 
   private

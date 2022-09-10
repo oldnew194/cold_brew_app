@@ -59,6 +59,7 @@ class ArticlesController < ApplicationController
 
   def search
     @results = @q.result
+    @search_articles_count = @results.count
   end
 
   private

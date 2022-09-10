@@ -73,7 +73,7 @@ crumb :article_show do |store|
 end
 
 crumb :article_search do |search_article|
-  link "投稿記事から探す", search_store_articles_path
+  link "メーターで探す", search_store_articles_path
   parent :root
 end
 # crumb :projects do

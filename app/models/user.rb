@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
 
+  enum role: { general: 0, admin: 1 }
+
   def own?(object)
     id == object.user_id
   end

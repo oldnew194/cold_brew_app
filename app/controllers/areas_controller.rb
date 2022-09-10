@@ -1,6 +1,7 @@
 class AreasController < ApplicationController
   before_action :set_store, only: [:show]
   before_action :find_area, only: [:edit, :update, :destroy]
+  before_action :check_admin, only: %i[new edit create update destroy]
 
   def index
    #binding.pry
@@ -40,6 +41,7 @@ class AreasController < ApplicationController
   def show
     @area = Area.find(params[:id])
     @stores = @area.stores
+    @areas_count = @stores.count
   end
 
   private

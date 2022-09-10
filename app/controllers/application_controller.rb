@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   def not_authenticated
     redirect_to login_path, warning: t('defaultsmessage.not_authenticated')
   end
+
+  def check_admin
+    redirect_to root_path, warning: t('defaults.message.not_authorized') unless current_user.admin?
+  end
 end

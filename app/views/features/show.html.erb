@@ -3,6 +3,7 @@
 <p>Find me in app/views/features/show.html.erb</p>
 <h1>ここは <%= @feature.id %>で、<%= @feature.feature_type %> の該当ページです</h1>
 <%= @feature.stores.name %>
+<%= @features_count %>件見つかりました
 
 <% content_for(:title, t('.title')) %>
 <div class="container pt-3">

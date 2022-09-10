@@ -1,6 +1,7 @@
 <% breadcrumb :area_show, @area %>
 <h1>Areas#show</h1>
 <h1>ここは <%= @area.id %>で、<%= @area.name %> の該当ページです</h1>
+<%= @areas_count %>件見つかりました
 <p>Find me in app/views/areas/show.html.erb</p>
 
 <%= @area.stores.name %>

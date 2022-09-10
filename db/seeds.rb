@@ -8,7 +8,8 @@
 User.create!(
   { name: 'runteq', email:'runteq@example.com',password: '1111',password_confirmation: '1111' },
   { name: 'runteq2', email:'runteq2@example.com',password: '2222',password_confirmation: '2222' },
-  { name: 'runteq3', email:'runteq3@example.com',password: '3333',password_confirmation: '3333' }
+  { name: 'runteq3', email:'runteq3@example.com',password: '3333',password_confirmation: '3333' },
+  { name: 'admin', email: 'admin@example.com', password: '567890as',password_confirmation: '567890as', role: 1}
   )
 
 Area.create!(

@@ -1,11 +1,13 @@
 class StoresController < ApplicationController
   before_action :find_store, only: [:edit, :update, :destroy]
   #before_action :set_articles, only: [:show]
+  before_action :check_admin, only: %i[new create edit update destroy]
 
   def index
     @q = Store.ransack(params[:q])
     @stores = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
     @store = Store.new
+    @stores_count = @stores.count
 
     if params[:feature_ids]
       @stores = []
