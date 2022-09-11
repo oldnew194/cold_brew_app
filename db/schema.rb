@@ -43,16 +43,6 @@ ActiveRecord::Schema.define(version: 2022_09_10_080236) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
-  create_table "bookmarks", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "article_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_bookmarks_on_article_id"
-    t.index ["user_id", "article_id"], name: "index_bookmarks_on_user_id_and_article_id", unique: true
-    t.index ["user_id"], name: "index_bookmarks_on_user_id"
-  end
-
   create_table "coffees", force: :cascade do |t|
     t.string "producing_area"
     t.datetime "created_at", precision: 6, null: false
@@ -119,8 +109,8 @@ ActiveRecord::Schema.define(version: 2022_09_10_080236) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", null: false
     t.string "name", null: false
+    t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", precision: 6, null: false
@@ -134,8 +124,6 @@ ActiveRecord::Schema.define(version: 2022_09_10_080236) do
   add_foreign_key "article_coffees", "coffees"
   add_foreign_key "articles", "stores"
   add_foreign_key "articles", "users"
-  add_foreign_key "bookmarks", "articles"
-  add_foreign_key "bookmarks", "users"
   add_foreign_key "comments", "stores"
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "stores"

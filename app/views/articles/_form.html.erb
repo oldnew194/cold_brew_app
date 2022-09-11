@@ -20,6 +20,8 @@
     <%= image_tag article.article_image.url, id: 'preview', size: '300x200' %>
   </div>
 
+
+  <h6 class="left">まろやか☕️</h6>
   <div class="rate">
     <%= f.radio_button :rate, "1" %>
     <%= f.label :rate , value: 1 %>
@@ -32,6 +34,7 @@
     <%= f.radio_button :rate, "5" %>
     <%= f.label :rate , value: 5 %>
   </div>
+  <h6 class="right">フルーティ🍒</h6>
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>

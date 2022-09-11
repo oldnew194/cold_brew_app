@@ -14,11 +14,11 @@
       <h3 class="left">まろやか☕️</h3>
         <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
           <%= f.radio_button :rate_eq, '' %><span class="font">※指定しない</span>
-          <%= f.radio_button :rate_eq, '1.0' %><span class="font">M2</span>
-          <%= f.radio_button :rate_eq, '2.0' %><span class="font">M1</span>
-          <%= f.radio_button :rate_eq, '3.0', checked: true %><span class="font">0</span>
-          <%= f.radio_button :rate_eq, '4.0' %><span class="font">F1</span>
-          <%= f.radio_button :rate_eq, '5.0' %><span class="font">F2</span>
+          <%= f.radio_button :rate_eq, '1.0' %><span class="font">1</span>
+          <%= f.radio_button :rate_eq, '2.0' %><span class="font">2</span>
+          <%= f.radio_button :rate_eq, '3.0', checked: true %><span class="font">3</span>
+          <%= f.radio_button :rate_eq, '4.0' %><span class="font">4</span>
+          <%= f.radio_button :rate_eq, '5.0' %><span class="font">5</span>
           <h3><%= f.submit class: 'btn btn-primary' %></h3>
         <% end %>
       <h3 class="right">フルーティ🍒</h3>
@@ -32,15 +32,15 @@
           <h3><%= link_to '池袋', '/areas/3' %></h3>
           <h3><%= link_to '表参道', '/areas/4' %></h3>
           <h3><%= link_to '代官山', '/areas/5' %></h3>
-          
         </h3>
       </div>
       <div class="col-md-4">
         <h3>特徴から探す</h3>
           <h3><%= link_to 'コーヒースタンド', '/features/1' %></h3>
-          <h3><%= link_to 'テラス席あり', '/features/2' %></h3>
-          <h3><%= link_to '喫煙可', 'features/3' %></h3>
-          
+          <h3><%= link_to 'テラス席', '/features/2' %></h3>
+          <h3><%= link_to '豆販売', 'features/3' %></h3>
+          <h3><%= link_to '禁煙', 'features/4' %></h3>
+          <h3><%= link_to 'フードも◎', 'features/5' %></h3>
         </h3>
       </div>
     </div>
