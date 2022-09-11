@@ -1,8 +1,6 @@
 <% breadcrumb :feature_show, @feature %>
-<h1>Features#show</h1>
-<p>Find me in app/views/features/show.html.erb</p>
-<h1>ここは <%= @feature.id %>で、<%= @feature.feature_type %> の該当ページです</h1>
-<%= @feature.stores.name %>
+
+<h3><%= @feature.feature_type %> のコーヒーショップ</h3>
 <%= @features_count %>件見つかりました
 
 <% content_for(:title, t('.title')) %>

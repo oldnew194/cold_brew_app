@@ -7,8 +7,10 @@
           <h4 class="card-title">
             <%= link_to store.name, store_path(store.id) %>
           </h4>
-          <%= render 'crud_menus', store: store %>
-          <%= render 'favorite_button', store: store %>
+          <% if logged_in? %>
+            <%= render 'crud_menus', store: store %>
+            <%= render 'favorite_button', store: store %>
+          <% end %>
           <ul class="list-inline">
             <li class="list-inline-item">
               <%= @area.name %>

@@ -1,24 +1,29 @@
-
 <div class="top-wrapper">
   <div class="top-inner-text">
     <h1>Cold Brew/Crew</h1>
-    <br>
+
     <h3>店名から探す</h3>
-    <%= search_form_for @search_store, url: stores_path do |f| %></h3>
-      <h3><%= f.text_field :name_cont ,placeholder: '店名を入力してください' %></h3>
+    <%= search_form_for @search_store, url: stores_path do |f| %>
+      <h3><%= f.text_field :name_cont ,placeholder: '店名' %></h3>
       <%= f.submit class: 'btn btn-primary' %>
     <% end %>
+    
     <h3>味の評価から探す</h3>
-    <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
-      <%= f.label :rate_eq, '評価' %>
-      <%= f.radio_button :rate_eq, '' %>指定しない
-      <%= f.radio_button :rate_eq, '1.0' %>1.0
-      <%= f.radio_button :rate_eq, '2.0' %>2.0
-      <%= f.radio_button :rate_eq, '3.0' %>3.0
-      <%= f.radio_button :rate_eq, '4.0' %>4.0
-      <%= f.radio_button :rate_eq, '5.0' %>5.0
-      <%= f.submit class: 'btn btn-primary' %>
-    <% end %>
+
+    <div class="frame">
+      <h3 class="left">まろやか☕️</h3>
+        <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
+          <%= f.radio_button :rate_eq, '' %><span class="font">※指定しない</span>
+          <%= f.radio_button :rate_eq, '1.0' %><span class="font">M2</span>
+          <%= f.radio_button :rate_eq, '2.0' %><span class="font">M1</span>
+          <%= f.radio_button :rate_eq, '3.0', checked: true %><span class="font">0</span>
+          <%= f.radio_button :rate_eq, '4.0' %><span class="font">F1</span>
+          <%= f.radio_button :rate_eq, '5.0' %><span class="font">F2</span>
+          <h3><%= f.submit class: 'btn btn-primary' %></h3>
+        <% end %>
+      <h3 class="right">フルーティ🍒</h3>
+    </div>
+    
     <div class="row">
       <div class="col-md-4">
         <h3>エリアから探す</h3>

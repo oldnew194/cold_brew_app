@@ -1,6 +1,7 @@
 class FeaturesController < ApplicationController
   #before_action :set_store, only: [:index, :new, :show, :create, :show, :edit, :update, :destroy]
   before_action :check_admin, only: %i[new edit create update destroy]
+  before_action :find_feature, only: [:edit, :update, :destroy]
 
   def index
     @stores = Store.all
@@ -49,5 +50,9 @@ class FeaturesController < ApplicationController
   #def set_store
     #@store = Store.find(params[:id])
   #end
+
+  def find_feature
+    @feature = Feature.find(params[:id])
+  end
 
 end

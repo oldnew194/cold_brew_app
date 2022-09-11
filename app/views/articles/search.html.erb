@@ -23,7 +23,8 @@
                       <%= article.user.name %>
                       <%= icon 'far', 'calendar' %>
                       <%= l article.created_at, format: :long %>
-                      店名：<%= article.store.name %>
+                      <i class="fa fa-coffee" aria-hidden="true"></i>
+                      <%= article.store.name %>
                     </li>
                   </ul>
                 </div>
@@ -31,6 +32,7 @@
             </div>
           </div>
         <% end %>
+        <%= paginate @results %>
       </div>
     </div>
   </div>

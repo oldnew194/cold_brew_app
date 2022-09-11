@@ -1,5 +1,8 @@
 <% breadcrumb :article_index, @store %>
 
+<h3><%= @store.name %> の投稿記事</h3>
+<%= @search_articles_count %>件見つかりました
+
 <% content_for(:title, t('.title')) %>
 <div class="container pt-3">
    <div class="row">

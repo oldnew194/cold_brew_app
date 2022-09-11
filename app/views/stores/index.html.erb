@@ -5,14 +5,9 @@
    <div class="row">
      <div class="col-lg-10 offset-lg-1">
        <!-- 検索フォーム -->
-       <%= render 'search_form', url: stores_path %>
        
-      <%= form_tag({controller:"stores",action:"index"}, method: :get) do %>
-        <% Feature.all.each do |feature| %>
-          <li><%= check_box :feature_ids, feature.feature_type %><%= feature.feature_type %></li>
-        <% end %>
-        <%= submit_tag '検索' %>
-      <% end %>
+       
+      
      </div>
    </div>
 

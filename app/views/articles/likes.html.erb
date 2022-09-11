@@ -1,3 +1,8 @@
+<h3><%= @current_user.name %> がいいねした記事</h3>
+<%= @like_articles_count %>件見つかりました
+
+
+<% content_for(:title, t('.title')) %>
 <div class="container pt-3">
   <div class="row">
     <div class="col-12">

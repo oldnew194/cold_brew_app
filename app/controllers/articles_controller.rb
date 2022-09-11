@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
     #@q = Article.ransack(params[:q])
     @article = Article.new
     @articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).page(params[:page])
+    @articles_count = @articles.count
   end
 
   def new
@@ -55,11 +56,14 @@ class ArticlesController < ApplicationController
 
   def likes
     @articles = current_user.likes_articles.order(created_at: :desc).page(params[:page])
+    @like_articles = current_user.likes_articles.order(created_at: :desc)
+    @like_articles_count = @like_articles.count
   end
 
   def search
-    @results = @q.result
-    @search_articles_count = @results.count
+    @results = @q.result.page(params[:page])
+    @search_results = @q.result
+    @search_articles_count = @search_results.count
   end
 
   private
