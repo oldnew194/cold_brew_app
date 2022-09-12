@@ -51,8 +51,8 @@ Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, s
 Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 10, rate: 3.0)
 Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 6, rate: 3.0)
 Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 3, rate: 4.0)
-Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 7 rate: 1.0)
-Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 8 rate: 2.0)
+Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 7, rate: 1.0)
+Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 8, rate: 2.0)
 Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 1, rate: 4.0) 
 Article.create!(title: "管理者投稿", body: "管理者投稿", user_id: 2, store_id: 5, rate: 4.0)
   
