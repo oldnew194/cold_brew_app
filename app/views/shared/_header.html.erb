@@ -14,11 +14,11 @@
     <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
       <%= f.label :rate_eq, '味の評価から探す' %>
       
-      <%= f.radio_button :rate_eq, 'M2' %>M2
-      <%= f.radio_button :rate_eq, '2.0' %>M1
-      <%= f.radio_button :rate_eq, '3.0', checked: true %>0
-      <%= f.radio_button :rate_eq, '4.0' %>F1
-      <%= f.radio_button :rate_eq, '5.0' %>F2
+      <%= f.radio_button :rate_eq, 'M2' %>1
+      <%= f.radio_button :rate_eq, '2.0' %>2
+      <%= f.radio_button :rate_eq, '3.0', checked: true %>3
+      <%= f.radio_button :rate_eq, '4.0' %>4
+      <%= f.radio_button :rate_eq, '5.0' %>5
       <%= f.submit ("検索") , class: 'search-btn'%>
     <% end %>
 
