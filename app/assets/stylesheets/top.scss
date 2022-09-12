@@ -21,25 +21,6 @@
   }
 }
 
-.link {
-	text-decoration: none;
-	color: white ; 
-}
-
-.header {
-	color: #ffffff;
-}
-
-.footer {
-
-	bottom: 0; /*下に固定*/
-	background-color: #343a40;
-	color: #ffffff;
-	width: 100%;
-	height: 60px;
-}
-
-
 .rate input{
 	display: none;
   position: relative;
@@ -101,39 +82,3 @@
 	background-color: #1c69ee;
 	color: #fff;
 }
-
-.inline-block {
-	display: inline-block;      /* インラインブロック要素にする */
-	padding:  20px;             /* 余白指定 */
-	height: 50px;              /* 高さ指定 */
-	text-align: end;
-}
-
-.right2 {
-	padding: 20px;
-	text-align: end;
-}
-
-
-.left, .right {
-  display: inline-block;
-	margin: 0;
-	writing-mode: vertical-rl;
-	
-}
-
-.frame {
-  display: flex;
-  justify-content: center;
-}
-
-.font {
-	font-size: 30px;
-}
-
-input::placeholder {
-  font-size: 15px;
-	text-align: auto;
-}
-
-
