@@ -67,3 +67,5 @@ gem 'ransack'
 gem 'kaminari'
 
 gem 'gretel'
+
+gem 'high_voltage'
