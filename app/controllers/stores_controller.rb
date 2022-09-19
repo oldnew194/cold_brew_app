@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
   before_action :find_store, only: [:edit, :update, :destroy]
-  #before_action :set_articles, only: [:show]
+  #before_action :find_articles, only: [:show]
   before_action :check_admin, only: %i[new create edit update destroy]
 
   def index
@@ -37,15 +37,17 @@ class StoresController < ApplicationController
       flash.now['danger'] = t('defaults.message.not_created', item: Store.model_name.human)
       render :new
     end
-  end #管理者のみ使えるようにする？
+  end
 
   def show
     @store = Store.new
     @store = Store.find(params[:id])
     # 新着コメントを上から3件取得
-    #@store_articles_latest3 = @store_articles.first(3)
-    # 新着コメント3件を除く全コメントを取得 (3件以下の場合は空)
-    #@store_articles_offset3 = @store_articles.offset(3)
+    #@recent_latest3 = @store_articles.first(3)
+    #@recent_articles = Article.where(user_id: @article.user_id).order(created_at: :desc).limit(4)
+    #@articles = Article.order(created_at: :desc).limit(3)
+    @store_articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).limit(3)
+    #binding.pry
     @comment = Comment.new
     @comments = @store.comments.includes(:user).order(created_at: :desc)
   end
@@ -99,8 +101,8 @@ class StoresController < ApplicationController
     @store = Store.find(params[:id])
   end
 
-  #def set_articles
+  #def find_articles
     # storeに紐づくarticlesを新着順で取得
-    #@store_articles = @store.articles.includes(:user).order('created_at DESC')
+    #@store_articles = @store.article.includes(:user).order(created_at: :desc)
   #end
 end

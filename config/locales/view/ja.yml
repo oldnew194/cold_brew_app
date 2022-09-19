@@ -38,17 +38,17 @@ ja:
       success: 'ログアウトしました'
   articles:
     index:
-      title: '掲示板一覧'
-      no_result: '掲示板がありません。'
+      title: '投稿記事一覧'
+      no_result: '投稿された記事がありません。'
     new:
-      title: '掲示板作成'
+      title: '記事の作成'
     show:
-      title: '掲示板詳細'
+      title: '記事の詳細'
     edit:
-      title: '掲示板編集'
+      title: '記事の編集'
     create:
-      success: '掲示板を作成しました'
-      fail: '掲示板を作成できませんでした'
+      success: '記事を投稿しました'
+      fail: '記事を投稿できませんでした'
     favorites:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の掲示板がありません。'
