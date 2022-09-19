@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
   root 'static_pages#top'
 
+  post 'guest_login', to: 'user_sessions#guest_login'
+
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
