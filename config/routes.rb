@@ -5,9 +5,14 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
   end
+
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  
   root 'static_pages#top'
 
   post 'guest_login', to: 'user_sessions#guest_login'
+
+  resources :password_resets, only: %i[new create edit update]
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
