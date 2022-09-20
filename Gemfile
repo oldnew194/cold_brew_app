@@ -72,3 +72,5 @@ gem 'gretel'
 gem 'high_voltage'
 
 gem 'config', '2.0.0'
+
+gem 'enum_help'

@@ -125,6 +125,8 @@ GEM
       dry-core (~> 0.5, >= 0.5)
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     execjs (2.8.1)
     faker (2.22.0)
@@ -340,6 +342,7 @@ DEPENDENCIES
   carrierwave (= 2.0.2)
   config (= 2.0.0)
   draper (= 3.1.0)
+  enum_help
   faker
   font-awesome-sass (~> 5.11.2)
   gretel
