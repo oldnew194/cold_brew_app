@@ -1,6 +1,6 @@
 class AreasController < ApplicationController
-  before_action :set_store, only: [:show]
-  before_action :find_area, only: [:edit, :update, :destroy]
+  before_action :set_store, only: %i[show]
+  before_action :find_area, only: %i[edit update destroy]
   before_action :check_admin, only: %i[new edit create update destroy]
 
   def index
@@ -48,7 +48,6 @@ class AreasController < ApplicationController
 
   def area_params
     params.require(:area).permit(:name)
-    #.merge(store_id: params[:store_id])
   end
 
   def find_area

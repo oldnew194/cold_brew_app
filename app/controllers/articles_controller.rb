@@ -1,14 +1,11 @@
 class ArticlesController < ApplicationController
-   #before_action :require_login only: [:new, :create, :edit, :update, :destory]
-   before_action :find_article, only: [:edit, :update, :destroy]
-   before_action :set_store, only: [:index, :new, :create, :show, :edit, :update, :destroy, :likes]
-   before_action :set_coffee, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-   before_action :set_q, only: [:index, :search]
+  before_action :require_login, only: %i[new create destroy]
+  before_action :find_article, only: %i[edit update destroy]
+  before_action :set_store, only: %i[index new create show edit update destroy likes]
+  before_action :set_coffee, only: %i[index new create show edit update destroy]
+  before_action :set_q, only: %i[index search]
 
   def index
-    #binding.pry
-    #@stores = Store.all
-    #@q = Article.ransack(params[:q])
     @article = Article.new
     @articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).page(params[:page])
     @articles_count = @articles.count
@@ -21,7 +18,7 @@ class ArticlesController < ApplicationController
   def create
     @article = current_user.articles.build(article_params)
     if @article.save
-      #binding.pry
+
       redirect_to store_path(@store), success: t('defaults.message.created', item: Article.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Article.model_name.human)
@@ -45,7 +42,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    #binding.pry
     @article.destroy!
     redirect_to store_articles_path(@store), success: t('defaults.message.deleted', item: Article.model_name.human)
   end
@@ -77,13 +73,11 @@ class ArticlesController < ApplicationController
   end
 
   def find_article
-    #@store = Store.find(params[:store_id])
     @article = current_user.articles.find(params[:id])
   end
 
   def set_store
     @store = Store.find(params[:store_id])
-    #binding.pry
   end
 
   def set_coffee

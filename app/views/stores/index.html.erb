@@ -2,24 +2,15 @@
 <% breadcrumb :store_index, @q %>
 <% content_for(:title, t('.title')) %>
 <div class="container pt-3">
-   <div class="row">
-     <div class="col-lg-10 offset-lg-1">
-       <!-- 検索フォーム -->
-       
-       
-      
-     </div>
-   </div>
-
-   <!-- 掲示板一覧 -->
-   すべて    (<%= @stores_count %>件)
-   <div class="row">
-     <div class="col-12">
-       <div class="row">
-          <%= render @stores %> 
-       </div>
-     </div>
-     <!-- ページネーション -->
+  <!-- 掲示板一覧 -->
+  すべて    (<%= @stores_count %>件)
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <%= render @stores %> 
+      </div>
+    </div>
+    <!-- ページネーション -->
     <%= paginate @stores %>
-   </div>
- </div>
+  </div>
+</div>

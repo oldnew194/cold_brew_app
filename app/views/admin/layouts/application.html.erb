@@ -8,7 +8,6 @@
     <meta name="robots" content="noindex, nofollow">
     <title><%= page_title(yield(:title), admin: true) %></title>
     <%= csrf_meta_tags %>
-    # ↓ここでadmin.scssを読み込む
     <%= stylesheet_link_tag 'admin', media: 'all' %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   </head>
@@ -29,7 +28,6 @@
     <%= render 'admin/shared/footer' %>
 
   </div>
-  # ↓ここでadmin.jsを読み込む
   <%= javascript_include_tag 'admin' %>
   </body>
 </html>

@@ -1,6 +1,5 @@
 class StoresController < ApplicationController
   before_action :find_store, only: [:edit, :update, :destroy]
-  #before_action :find_articles, only: [:show]
   before_action :check_admin, only: %i[new create edit update destroy]
 
   def index
@@ -26,12 +25,8 @@ class StoresController < ApplicationController
   end
 
   def create
-    #binding.pry
     @store = Store.new(store_params)
-    #@area = Area.find(params[:id])
-    #@store = store.new
     if @store.save
-      #binding.pry
       redirect_to store_path(@store), success: t('defaults.message.created', item: Store.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Store.model_name.human)
@@ -42,12 +37,7 @@ class StoresController < ApplicationController
   def show
     @store = Store.new
     @store = Store.find(params[:id])
-    # 新着コメントを上から3件取得
-    #@recent_latest3 = @store_articles.first(3)
-    #@recent_articles = Article.where(user_id: @article.user_id).order(created_at: :desc).limit(4)
-    #@articles = Article.order(created_at: :desc).limit(3)
     @store_articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).limit(3)
-    #binding.pry
     @comment = Comment.new
     @comments = @store.comments.includes(:user).order(created_at: :desc)
   end
@@ -64,15 +54,12 @@ class StoresController < ApplicationController
   end
 
   def destroy
-    #binding.pry
     @store.destroy!
     redirect_to stores_path(@store), success: t('defaults.message.deleted', item: Store.model_name.human)
   end
 
   def favorites
-    #binding.pry
     @q = current_user.favorites_stores.ransack(params[:q])
-    #@favorite_stores = current_user.favorites_stores.order(created_at: :desc)
     @favorite_stores = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
     @favorites_stores = @q.result(distinct: true).order(created_at: :desc)
     @favorites_stores_count = @favorites_stores.count
@@ -97,12 +84,7 @@ class StoresController < ApplicationController
   end
 
   def find_store
-    #@store = Store.find(params[:store_id])
     @store = Store.find(params[:id])
   end
 
-  #def find_articles
-    # storeに紐づくarticlesを新着順で取得
-    #@store_articles = @store.article.includes(:user).order(created_at: :desc)
-  #end
 end

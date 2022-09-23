@@ -1,10 +1,9 @@
 class PasswordResetsController < ApplicationController
+  
   def new; end
 
   def create
     @user = User.find_by(email: params[:email])
-    # ここで先ほど定義したメソッドのapp/mailers/user_mailer.rbへ
-    #binding.pry
     @user&.deliver_reset_password_instructions!
     redirect_to login_path, success: 'パスワードリセット手順を送信しました'
   end

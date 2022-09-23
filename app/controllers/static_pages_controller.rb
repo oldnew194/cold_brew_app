@@ -1,12 +1,9 @@
 class StaticPagesController < ApplicationController
-  #skip_before_action :require_login, only: %i[top]
 
-  def top
-  end
+  def top; end
 
   def index
     @q = Store.ransack(params[:q])
-    #@stores = Store.all.order(created_at: :desc)
     @stores = @q.result(distinct: true).order(created_at: :desc)
   end
 

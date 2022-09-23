@@ -18,9 +18,6 @@ class CoffeesController < ApplicationController
   def show
     @articles = Article.all
     @coffee = Coffee.find(params[:id])
-    #binding.pry
-    #@articles = @coffee.articles
-    #binding.pry
   end
 
   private

@@ -1,5 +1,4 @@
 class FeaturesController < ApplicationController
-  #before_action :set_store, only: [:index, :new, :show, :create, :show, :edit, :update, :destroy]
   before_action :check_admin, only: %i[new edit create update destroy]
   before_action :find_feature, only: [:edit, :update, :destroy]
 
@@ -14,15 +13,12 @@ class FeaturesController < ApplicationController
 
   def edit; end
 
-  def create
-  end
+  def create; end
 
-  def destroy
-  end
+  def destroy; end
 
   def show
     @feature = Feature.find(params[:id])
-    #binding.pry
     @stores = @feature.stores
     @features_count = @stores.count
   end
@@ -46,10 +42,6 @@ class FeaturesController < ApplicationController
   def feature_params
     params.require(:feature).permit(:feature_type).merge(store_id: params[:store_id])
   end
-
-  #def set_store
-    #@store = Store.find(params[:id])
-  #end
 
   def find_feature
     @feature = Feature.find(params[:id])

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  #skip_before_action :require_login, only: %i[new create]
 
   def new
     @user = User.new
@@ -16,8 +15,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    #@user = current_user.find(params[:id])
-    
     @articles = current_user.articles.reverse_order.page(params[:page])
     @likes_articles = current_user.likes_articles.page(params[:page])
     @stores = current_user.favorites_stores.page(params[:page])
