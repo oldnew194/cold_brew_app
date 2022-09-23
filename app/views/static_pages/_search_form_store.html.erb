@@ -1,0 +1,22 @@
+<div class="frame">
+  <h3 class="left">まろやか☕️</h3>
+  <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
+    <%= f.radio_button :rate_eq, '' %>
+    <span class="font"><%= f.label(:rate_eq, "指定しない", value: '', checked: true) %></span>
+    <div class="rate_eq">
+      <%= f.radio_button(:rate_eq, '1') %>
+      <%= f.label(:rate_eq, '1', value: 1) %>
+      <%= f.radio_button(:rate_eq, '2') %>
+      <%= f.label(:rate_eq, '2', value: 2) %>
+      <%= f.radio_button(:rate_eq, '3') %>
+      <%= f.label(:rate_eq, '3', value: 3) %>
+      <%= f.radio_button(:rate_eq, '4') %>
+      <%= f.label(:rate_eq, '4', value: 4) %>
+      <%= f.radio_button(:rate_eq, '5') %>
+      <%= f.label(:rate_eq, '5', value: 5) %>
+    </div>
+    <br>
+    <h3><%= f.submit class: 'btn btn-primary' %></h3>
+  <% end %>
+  <h3 class="right">フルーティ🍒</h3>
+</div>

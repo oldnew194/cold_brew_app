@@ -9,21 +9,8 @@
     <% end %>
     
     <h3>味の評価から探す</h3>
+    <%= render 'search_form_store' %>
 
-    <div class="frame">
-      <h3 class="left">まろやか☕️</h3>
-        <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
-          <%= f.radio_button :rate_eq, '' %><span class="font">※指定しない</span>
-          <%= f.radio_button :rate_eq, '1.0' %><span class="font">1</span>
-          <%= f.radio_button :rate_eq, '2.0' %><span class="font">2</span>
-          <%= f.radio_button :rate_eq, '3.0', checked: true %><span class="font">3</span>
-          <%= f.radio_button :rate_eq, '4.0' %><span class="font">4</span>
-          <%= f.radio_button :rate_eq, '5.0' %><span class="font">5</span>
-          <h3><%= f.submit class: 'btn btn-primary' %></h3>
-        <% end %>
-      <h3 class="right">フルーティ🍒</h3>
-    </div>
-    
     <div class="row">
       <div class="col-md-4">
         <h3>エリアから探す</h3>

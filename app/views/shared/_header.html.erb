@@ -11,6 +11,8 @@
       <%= f.text_field :name_cont ,placeholder: '店名' %>
       <%= f.submit ("検索") , class: 'search-btn'%>
     <% end %>
+    
+    
     <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
       <%= f.label :rate_eq, '味の評価から探す' %>
       
