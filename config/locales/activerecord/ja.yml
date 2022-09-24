@@ -20,8 +20,9 @@ ja:
       article:
         title: 'タイトル'
         body: '本文'
-        article_image: 'サムネイル'
+        article_image: '画像'
         user: '作成者'
+        rate: '味の評価'
       store:
         name: '店舗名'
         address: '住所'

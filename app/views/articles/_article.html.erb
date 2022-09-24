@@ -12,12 +12,12 @@
         <% end %>
         <ul class="list-inline">
           <li class="list-inline-item">
+            <%= icon 'fa', 'coffee' %>
+            <%= @store.name %>
             <%= icon 'far', 'user' %>
             <%= article.user.name %>
             <%= icon 'far', 'calendar' %>
             <%= l article.created_at, format: :long %>
-            <i class="fa fa-coffee" aria-hidden="true"></i>
-            <%= @store.name %>
           </li>
         </ul>
       </div>

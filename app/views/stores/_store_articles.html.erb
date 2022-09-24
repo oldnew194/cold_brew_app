@@ -11,9 +11,10 @@
                   <%= link_to store_article.title, store_article_path(@store) %>
                 </h4>
                 <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <%= store_article.user.name %>
-                  </li>
+                  <%= icon 'far', 'user' %>
+                  <%= store_article.user.name %>
+                  <%= icon 'far', 'calendar' %>
+                  <%= l store_article.updated_at %>
                 </ul>
               </div>
             </div>

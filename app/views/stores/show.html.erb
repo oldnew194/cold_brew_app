@@ -17,10 +17,10 @@
                 <%= render 'crud_menus', store: @store %>
               <% end %>
               <ul class="list-inline">
-                <li class="list-inline-item">住所:<%= @store.address %></li>
-                <li class="list-inline-item">TEL:<%= @store.tel %></li>
-                <li class="list-inline-item">定休日:<%= @store.closing_day %></li>
-                <li class="list-inline-item">営業時間:<%= @store.decorate.business_hours %></li>
+                <li>住所:<%= @store.address %></li>
+                <li>TEL:<%= @store.tel %></li>
+                <li>定休日:<%= @store.closing_day %></li>
+                <li>営業時間:<%= @store.decorate.business_hours %></li>
               </ul>
             </div>
           </div>
