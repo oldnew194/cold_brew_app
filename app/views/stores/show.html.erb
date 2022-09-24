@@ -12,22 +12,22 @@
               <%= image_tag @store.store_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
             </div>
             <div class='col-md-9'>
-              <h4 style='display: inline;'>店舗名:<%= @store.name %></h4>
+              <h6 style='display: inline;'>店舗名: <%= @store.name %></h6>
               <% if logged_in? %>
                 <%= render 'crud_menus', store: @store %>
               <% end %>
               <ul class="list-inline">
-                <li>住所:<%= @store.address %></li>
-                <li>TEL:<%= @store.tel %></li>
-                <li>定休日:<%= @store.closing_day %></li>
-                <li>営業時間:<%= @store.decorate.business_hours %></li>
+                <li>住所: <%= @store.address %></li>
+                <li>TEL: <%= @store.tel %></li>
+                <li>定休日: <%= @store.closing_day %></li>
+                <li>営業時間: <%= @store.decorate.business_hours %></li>
               </ul>
             </div>
           </div>
           <% @store.features.each do |feature| %>
-            <span><%= link_to feature.feature_type, feature_path(feature) %></span>
+            <span><%= link_to feature.feature_type, feature_path(feature),class: 'link' %></span>
           <% end %>
-          <p><%= link_to @store.area.name, area_path(@store.area) %></p>
+          <p><%= link_to @store.area.name, area_path(@store.area),class: 'link' %></p>
         </div>
       </article>
     </div>

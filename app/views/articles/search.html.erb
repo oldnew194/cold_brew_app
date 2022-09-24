@@ -2,7 +2,7 @@
 <div class="container pt-5">
   <div class="row">
     <div class="col-12">
-    <%= @search_articles_count %>    件見つかりました
+      <%= @search_articles_count %>    件見つかりました
       <div class="row">
         <% @results.each do |article| %>
           <div class="col-sm-12 col-lg-4 mb-3">
@@ -21,8 +21,12 @@
                     <li class="list-inline-item">
                       <%= icon 'fa', 'coffee' %>
                       <%= article.store.name %>
+                    </li>
+                    <li class="list-inline-item">
                       <%= icon 'far', 'user' %>
                       <%= article.user.name %>
+                    </li>
+                    <li class="list-inline-item">
                       <%= icon 'far', 'calendar' %>
                       <%= l article.created_at, format: :long %>
                     </li>
@@ -32,8 +36,8 @@
             </div>
           </div>
         <% end %>
-        <%= paginate @results %>
       </div>
+      <%= paginate @results %>
     </div>
   </div>
 </div>

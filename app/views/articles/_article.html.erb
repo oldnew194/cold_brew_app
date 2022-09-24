@@ -14,8 +14,12 @@
           <li class="list-inline-item">
             <%= icon 'fa', 'coffee' %>
             <%= @store.name %>
+          </li>
+          <li class="list-inline-item">
             <%= icon 'far', 'user' %>
             <%= article.user.name %>
+          </li>
+          <li class="list-inline-item">
             <%= icon 'far', 'calendar' %>
             <%= l article.created_at, format: :long %>
           </li>
