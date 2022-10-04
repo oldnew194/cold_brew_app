@@ -34,6 +34,8 @@ ja:
         store_image: '画像'
       administrator:
         email: メールアドレス
+      coffee:
+        producing_area: 'コーヒー豆の産地'
   enums:
     user:
       role:

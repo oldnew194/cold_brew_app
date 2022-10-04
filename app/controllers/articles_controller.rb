@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    binding.pry
     @article = current_user.articles.build(article_params)
     if @article.save
 
@@ -69,7 +70,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :body, :article_image, :article_image_cache, :rate).merge(store_id: params[:store_id])
+    params.require(:article).permit(:title, :body, :article_image, :article_image_cache, :rate, coffee_ids: []).merge(store_id: params[:store_id])
   end
 
   def find_article

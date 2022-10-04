@@ -9,11 +9,9 @@ class CoffeesController < ApplicationController
     @coffee = Coffee.new
   end
 
-  def create
-  end
+  def create; end
 
-  def destroy
-  end
+  def destroy; end
 
   def show
     @articles = Article.all

@@ -16,16 +16,18 @@
               <h3 class=><%= @article.title %></h3>
               
               <% if logged_in? %>
-              <%= render 'crud_menus', article: @article if current_user.own?(@article) %>
+                <%= render 'crud_menus', article: @article if current_user.own?(@article) %>
               <% end %>
               <ul class="list-inline">
                 <li class="">味の評価： <%= @article.rate %></li>
+                
                 <li class="">店舗名：  <%= @article.store.name %></li>
                 <li class="">記事の作成者： <%= @article.user.name %></li>
                 <li class="">作成日時： <%= l @article.created_at, format: :long  %></li>
               </ul>
             </div>
           </div>
+          コーヒー豆の産地：
           <% @article.coffees.each do |coffee| %>
             <span><%= coffee.producing_area %></span>
           <% end %>

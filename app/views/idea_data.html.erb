@@ -12,8 +12,8 @@
 
 ## /Users/user/pf/cold_brew_app/app/views/articles/_article.html.erb
   <% article.coffees.each do |coffee| %>
-  <span><%= coffee.producing_area %></span>
-<% end %>
+    <span><%= coffee.producing_area %></span>
+  <% end %>
 
 #store/indexの画像リンク
 <%= image_tag store.store_image_url, class: 'card-img-top', size: '300x200' %>
