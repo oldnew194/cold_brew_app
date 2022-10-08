@@ -17,3 +17,15 @@
 
 #store/indexの画像リンク
 <%= image_tag store.store_image_url, class: 'card-img-top', size: '300x200' %>
+
+#/Users/user/pf/cold_brew_app/app/views/coffees/edit.html.erb
+<div class='form-group'>
+    <%= f.collection_check_boxes(:season_ids, Season.all, :id, :name) do |tag| %>
+      <div class='form-check'>
+          <%= tag.label class: 'form-check-label' do %>
+              <%= tag.check_box class: 'form-check-input' %>
+              <%= tag.text %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>

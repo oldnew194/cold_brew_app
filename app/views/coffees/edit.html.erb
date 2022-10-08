@@ -1,0 +1,11 @@
+<%= form_with model: @coffee, local: true do |f| %>
+  <div class="form-group">
+    <%= t('coffee.producing_area') %>
+    <%= @coffee.producing_area %>
+  </div>
+  <div class="form-group">
+    <%= f.label :producing_area %>
+    <%= f.text_field :producing_area, class: 'form-control' %>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

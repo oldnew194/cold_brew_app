@@ -1,7 +1,7 @@
 class AreasController < ApplicationController
   before_action :set_store, only: %i[show]
   before_action :find_area, only: %i[edit update destroy]
-  before_action :check_admin, only: %i[new edit create update destroy]
+  before_action :check_admin, only: %i[index new edit create update destroy]
 
   def index
    #binding.pry

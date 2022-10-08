@@ -1,17 +1,38 @@
 class CoffeesController < ApplicationController
+  before_action :find_coffee, only: %i[edit update destroy]
+  before_action :check_admin, only: %i[new edit create update destroy]
 
   def index
-    @articles = Article.all
-    @coffees = Coffee.where(article_id: @article).order(created_at: :desc)
+    @coffees = Coffee.all
   end
 
   def new
     @coffee = Coffee.new
   end
 
-  def create; end
+  def create
+    @coffee = Coffee.new(coffee_params2)
+    if @coffee.save
+      redirect_to coffees_path, success: t('.success')
+    else
+      flash.now[:danger] = t('.fail')
+      render :new
+    end
+  end
 
-  def destroy; end
+  def destroy
+    @coffee.destroy!
+    redirect_to coffees_path, success: t('defaults.message.deleted', item: Coffee.model_name.human)
+  end
+
+  def update
+    if @coffee.update(coffee_params2)
+      redirect_to coffees_path, success: t('defaults.message.updated', item: Coffee.model_name.human)
+    else
+      flash.now['danger'] = t('defaults.message.not_updated', item: Coffee.model_name.human)
+      render :edit
+    end
+  end
 
   def show
     @articles = Article.all
@@ -22,6 +43,14 @@ class CoffeesController < ApplicationController
 
   def coffee_params
     params.require(:coffee).permit(:producing_area).merge(article_id: params[:article_id])
+  end
+
+  def coffee_params2
+    params.require(:coffee).permit(:producing_area)
+  end
+
+  def find_coffee
+    @coffee = Coffee.find(params[:id])
   end
 
 end

@@ -1,2 +1,27 @@
 <h1>Coffees#index</h1>
 <p>Find me in app/views/coffees/index.html.erb</p>
+
+<% @coffees.each do |coffee| %>
+  <div class="col-sm-12 col-lg-4 mb-3">
+    <div id="coffee-id-<%= coffee.id %>">
+      <div class="card">
+
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= coffee.id %>
+            <%= coffee.producing_area %>
+          </h4>
+          <%= link_to "編集", edit_coffee_path(coffee.id) %>
+          <%= link_to "削除", coffee_path(coffee.id), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }  %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% if logged_in? %>
+    <div class="row mb-3">
+      <div class="col-lg-8 offset-lg-2">
+        <%= link_to '産地を追加する', new_coffee_path(@coffee) %>
+      </div>
+    </div>
+  <% end %>

@@ -1,2 +1,17 @@
 <h1>Coffees#new</h1>
 <p>Find me in app/views/coffees/new.html.erb</p>
+
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    <%= form_with model: @coffee, local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+      <div class="form-group">
+        <%= f.label :producing_area %>
+        <%= f.text_field :producing_area, class: 'form-control' %>
+      </div>
+      <%= f.submit (t 'defaults.register'), class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
