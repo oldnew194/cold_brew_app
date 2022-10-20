@@ -1,0 +1,7 @@
+<%= link_to store_article_like_path(store_id: article.store_id,article_id: article.id, id: current_user.likes.find_by(article_id: article.id)),
+            id: "js-like-button-for-article-#{article.id}",
+            class:"float-right",
+            method: :delete,
+            remote: true do %>
+  <%= icon 'fas', 'heart' %>
+<% end %>

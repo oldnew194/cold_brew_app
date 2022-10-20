@@ -9,8 +9,8 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body> 
-    <% if logged_in? %>
+  <body style="background-color: #dee2e6;"> 
+    <% if logged_in?  %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>

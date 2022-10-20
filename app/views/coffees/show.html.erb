@@ -1,8 +1,7 @@
-<h1>Coffees#show</h1>
-<p>Find me in app/views/coffees/show.html.erb</p>
+<% breadcrumb :coffee_show, @coffee %>
 
-<h1>ここは <%= @coffee.id %>で、<%= @coffee.producing_area %> の該当ページです</h1>
-<%= @coffee.producing_area %>
+<h3><%= @coffee.producing_area %>産のコーヒー豆</h3>
+<%= @coffees_count %>件見つかりました
 
 <% content_for(:title, t('.title')) %>
 <div class="container pt-3">

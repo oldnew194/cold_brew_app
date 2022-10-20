@@ -1,10 +1,10 @@
-<footer id='footer' class="footer-bottom">
+<footer id='footer' class="footer" style="height:50px; background-color: #dee2e6;" >
   <div class="container">
     <div class="row">
-      <div class="inline-block">
-        <span class="right2"><%= link_to '利用規約', page_path('user_policy'),class: 'link' %></span>
-        <span class="right2"><%= link_to 'プライバシーポリシー', page_path('privacy_policy'),class: 'link' %></span>
-        <span class="right2"><%= link_to 'お問い合わせ', page_path('inquiry'),class: 'link' %></span>
+      <div class="col text-center">
+        <%= link_to '利用規約', page_path('user_policy'),class: 'link-footer' %>
+        <%= link_to 'プライバシーポリシー', page_path('privacy_policy'),class: 'link-footer' %>
+        <%= link_to 'お問い合わせ', page_path('inquiry'),class: 'link-footer' %>
       </div>
     </div>
   </div>

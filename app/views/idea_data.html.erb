@@ -29,3 +29,14 @@
         </div>
     <% end %>
   </div>
+
+  #/Users/user/pf/cold_brew_app/app/views/shared/_header.html.erb
+  <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
+    <font color="white">味の評価から探す</font>
+    <%= f.radio_button :rate_eq, 'M2' %>1
+    <%= f.radio_button :rate_eq, '2.0' %>2
+    <%= f.radio_button :rate_eq, '3.0', checked: true %>3
+    <%= f.radio_button :rate_eq, '4.0' %>4
+    <%= f.radio_button :rate_eq, '5.0' %>5
+    <%= f.submit class: 'btn btn-light btn-sm'%>
+  <% end %>

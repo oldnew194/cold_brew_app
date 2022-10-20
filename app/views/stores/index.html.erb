@@ -9,8 +9,9 @@
       <div class="row">
         <%= render @stores %> 
       </div>
+      <!-- ページネーション -->
+      <%= paginate @stores %>
     </div>
-    <!-- ページネーション -->
-    <%= paginate @stores %>
+    
   </div>
 </div>

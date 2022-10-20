@@ -1,25 +1,43 @@
 <header>
-  <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navigation navbar-dark bg-dark">
     <%= link_to root_path, class: 'navbar-brand' do %>
-      <%= image_tag 'logo.png' %>
+      <span class="navbar-brand mb-0 h1">Cold Brew/Crew</span>
     <% end %>
+
     <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
       <span class="navbar-toggler-icon"></span>
     </button>
-    店名から探す
-    <%= search_form_for @search_store, url: stores_path do |f| %>
-      <%= f.text_field :name_cont ,placeholder: '店名' %>
-      <%= f.submit ("検索") , class: 'search-btn'%>
-    <% end %>
-    <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
-      <%= f.label :rate_eq, '味の評価から探す' %>
-      <%= f.radio_button :rate_eq, '1.0' %>1
-      <%= f.radio_button :rate_eq, '2.0' %>2
-      <%= f.radio_button :rate_eq, '3.0', checked: true %>3
-      <%= f.radio_button :rate_eq, '4.0' %>4
-      <%= f.radio_button :rate_eq, '5.0' %>5
-      <%= f.submit ("検索") , class: 'search-btn'%>
-    <% end %>
+
+    <div class="collapse navbar-collapse justify-content-center">
+      <% unless request.path == '/' %>
+        <font color="white">店名から探す</font>
+        <%= search_form_for @search_store, url: stores_path do |f| %>
+          <%= f.text_field :name_cont ,placeholder: '店名' %>
+          <%= f.submit class: 'btn btn-light btn-sm'%>
+        <% end %>
+      
+        <font color="white">味の評価から探す</font>
+        <table>
+          ☕️
+          <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
+            <div class="rate_eq_h">
+              <%= f.radio_button(:rate_eq, '1') %>
+              <%= f.label(:rate_eq, '1', value: 1) %>
+              <%= f.radio_button(:rate_eq, '2') %>
+              <%= f.label(:rate_eq, '2', value: 2) %>
+              <%= f.radio_button(:rate_eq, '3') %>
+              <%= f.label(:rate_eq, '3', value: 3) %>
+              <%= f.radio_button(:rate_eq, '4') %>
+              <%= f.label(:rate_eq, '4', value: 4) %>
+              <%= f.radio_button(:rate_eq, '5') %>
+              <%= f.label(:rate_eq, '5', value: 5) %>
+            </div>
+            🍒
+            <%= f.submit class: 'btn btn-light btn-sm'%>    
+          <% end %>  
+        </table>
+      <% end %>
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto main-nav align-items-center">

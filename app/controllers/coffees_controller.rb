@@ -37,6 +37,9 @@ class CoffeesController < ApplicationController
   def show
     @articles = Article.all
     @coffee = Coffee.find(params[:id])
+    @srticles2 = @coffee.articles.page(params[:page])
+    @articles3 = @coffee.articles
+    @coffees_count = @articles3.count
   end
 
   private

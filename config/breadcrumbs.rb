@@ -42,6 +42,16 @@ crumb :feature_show do |feature|
   parent :feature_index
 end
 
+crumb :coffee_index do
+  link "コーヒー豆の産地から探す"
+  parent :root
+end
+
+crumb :coffee_show do |coffee|
+  link "#{coffee.producing_area}", coffee_path(coffee)
+  parent :coffee_index
+end
+
 crumb :store_index do
   link "店名から探す", stores_path
   parent :root

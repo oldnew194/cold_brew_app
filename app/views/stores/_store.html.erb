@@ -4,10 +4,10 @@
       
       <div class="card-body">
         <h4 class="card-title">
-            <%= link_to store.name, store_path(store) %>
+            <%= link_to store.name, store_path(store),class: 'link' %>
         </h4>
         <% if logged_in? %>
-          <%= render 'crud_menus', store: store %>
+          <%= render 'crud_menus', store: store if current_user.admin? %>
           <%= render 'favorite_button', store: store  %>
         <% end %>
         <ul class="list-inline">

@@ -1,5 +1,5 @@
 <div class="frame">
-  <h3 class="left">まろやか☕️</h3>
+  <h3 class="left">まろやか</h3>
   <%= search_form_for @search_article, url: search_store_articles_path(store_id: @search_articles) do |f| %>
     <%= f.radio_button :rate_eq, '' %>
     <span class="font"><%= f.label(:rate_eq, "指定しない", value: '', checked: true) %></span>
@@ -18,5 +18,5 @@
     <br>
     <h3><%= f.submit class: 'btn btn-primary' %></h3>
   <% end %>
-  <h3 class="right">フルーティ🍒</h3>
+  <h3 class="right">フルーティ</h3>
 </div>

@@ -1,6 +1,7 @@
 class FeaturesController < ApplicationController
+  before_action :set_store, only: %i[show]
   before_action :check_admin, only: %i[new edit create update destroy]
-  before_action :find_feature, only: [:edit, :update, :destroy]
+  before_action :find_feature, only: %i[edit update destroy]
 
   def index
     @stores = Store.all
@@ -19,8 +20,9 @@ class FeaturesController < ApplicationController
 
   def show
     @feature = Feature.find(params[:id])
-    @stores = @feature.stores
-    @features_count = @stores.count
+    @stores = @feature.stores.page(params[:page])
+    @stores2 = @feature.stores
+    @features_count = @stores2.count
   end
 
   def update
@@ -47,4 +49,7 @@ class FeaturesController < ApplicationController
     @feature = Feature.find(params[:id])
   end
 
+  def set_store
+    @store = Store.find(params[:id])
+  end
 end
