@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name: 'demo', email:'demo@example.com',password: 'demo',password_confirmation: 'demo')
 User.create!(name: 'admin', email: 'admin@example.com', password: '567890as',password_confirmation: '567890as', role: 1)
-  
 
 Area.create!(name: '渋谷')
 Area.create!(name: '新宿')

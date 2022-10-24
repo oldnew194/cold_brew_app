@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   mount_uploader :article_image, ArticleImageUploader
   belongs_to :user
   belongs_to :store
-  has_many :article_coffees
+  has_many :article_coffees, dependent: :destroy
   has_many :coffees, through: :article_coffees, source: :coffee
   has_many :likes, dependent: :destroy
   has_many :likes_articles, through: :likes, source: :article

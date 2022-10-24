@@ -12,6 +12,7 @@
        <div class="row">
           <%= render 'area' , { area: @area, stores: @stores } %> 
        </div>
+       <%= paginate @stores %>
      </div>
    </div>
  </div>
