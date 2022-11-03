@@ -28,6 +28,10 @@
             <span><%= link_to feature.feature_type, feature_path(feature),class: 'link' %></span>
           <% end %>
           <p><%= link_to @store.area.name, area_path(@store.area),class: 'link' %></p>
+          <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}%0a&text=Cold%20B/Crewで気になるお店を見つけました!
+        %0a#{@store.name}(#{@store.area.name})&hashtags=水出しコーヒー%0a", title: 'Twitter',class:"fab fa-twitter-square fasize", target: '_blank' %>
+        <%= link_to 'LINE',"https://social-plugins.line.me/lineit/share?url=#{request.url}%0a&text=Cold%20B/Crewで気になるお店を見つけました!
+        %0a#{@store.name}(#{@store.area.name})&hashtags=水出しコーヒー%0a", title: 'LINE',class:'fab fa-line fasize', target: '_blank' %>
         </div>
       </article>
     </div>

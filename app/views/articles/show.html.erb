@@ -5,22 +5,19 @@
     <div class="col-lg-8 offset-lg-2">
 
       <!-- 掲示板内容 -->
-      <article class="card text-center"  >
+      <article class= "card text-center" >
         <div class="card-body">
-
-            <%= image_tag @article.article_image.url, class: 'card-img-top ', size: '300x200' %>
-
-          <div class='row'>
-            
+          <%= image_tag @article.article_image.url, class: 'img-fluid', size: '300x200' %>
+          <div class='row'>  
             <div class='col-md-8 offset-lg-2'>
               <h3 class=><%= @article.title %></h3>
-              
+
               <% if logged_in? %>
                 <%= render 'crud_menus', article: @article if current_user.own?(@article) %>
               <% end %>
+
               <ul class="list-inline">
-                <li class="">味の評価： <%= @article.rate %></li>
-                
+                <li class="">味の評価： <%= @article.rate %></li>  
                 <li class="">店舗名：  <%= @article.store.name %></li>
                 <li class="">記事の作成者： <%= @article.user.name %></li>
                 <li class="">作成日時： <%= l @article.created_at, format: :long  %></li>
@@ -32,6 +29,10 @@
             <span><%= coffee.producing_area %></span>
           <% end %>
           <p><%= simple_format(@article.body) %></p>
+          <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}%0a&text=Cold%20B/Crewで気になるお店の記事を見つけました!
+         %0a#{@article.store.name}(#{@article.store.area.name})&hashtags=水出しコーヒー%0a", title: 'Twitter',class:'fab fa-twitter fasize', target: '_blank' %>
+         <%= link_to 'LINE',"https://social-plugins.line.me/lineit/share?url=#{request.url}%0a&text=Cold%20B/Crewで気になるお店の記事を見つけました!
+        %0a#{@article.store.name}(#{@article.store.area.name})&hashtags=水出しコーヒー%0a", title: 'LINE',class:'fab fa-line fasize', target: '_blank' %>
         </div>
       </article>
     </div>
