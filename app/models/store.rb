@@ -14,4 +14,7 @@ class Store < ApplicationRecord
   validates :closing_day, length: { maximum: 255 }
   validates :opening_hours, presence: true, length: { maximum: 255 }
   validates :closing_hours, presence: true, length: { maximum: 255 }
+
+  geocoded_by :address2
+  after_validation :geocode, latitude: :lat, longitude: :lng
 end

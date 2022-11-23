@@ -14,3 +14,8 @@
   /* つまみ部分を示す疑似要素-webkit-slider-thumbで、つまみだけ操作できるようにする */
   pointer-events: auto;
 }
+
+#target {
+  height: 300px;
+  width: 300px;
+}

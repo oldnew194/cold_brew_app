@@ -20,7 +20,8 @@
                 <li>住所: <%= @store.address %></li>
                 <li>TEL: <%= @store.tel %></li>
                 <li>定休日: <%= @store.closing_day %></li>
-                <li>営業時間: <%= @store.decorate.business_hours %></li>
+                
+                <li>営業時間: <%= @store.opening_hours2 %></li>
               </ul>
             </div>
           </div>
@@ -33,6 +34,38 @@
         <%= link_to 'LINE',"https://social-plugins.line.me/lineit/share?url=#{request.url}%0a&text=Cold%20B/Crewで気になるお店を見つけました!
         %0a#{@store.name}(#{@store.area.name})&hashtags=水出しコーヒー%0a", title: 'LINE',class:'fab fa-line fasize', target: '_blank' %>
         </div>
+        <script type="text/javascript">
+          function initMap() {
+            var test = {lat: <%= @store.latitude %>, lng: <%= @store.longitude %>};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                 zoom: 15, 
+                 center: test
+                 });
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+            var contentString = '住所：<%= @store.address2 %>';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            var marker = new google.maps.Marker({
+                     position:test,
+                     map: map,
+                     title: contentString
+                   });
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+        </script>
+        <script async defer
+             src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_JAVA_KEY'] %>&callback=initMap">
+        </script>
+        <style type="text/css">
+          #map { height: 300px;
+          width: 100%;}
+        </style>
+        <div id="map"></div>
+
       </article>
     </div>
   </div>
@@ -48,6 +81,11 @@
     <div class="row mb-3">
       <div class="col-lg-8 offset-lg-2">
         <%= link_to '記事を投稿する', new_store_article_path(@store) %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-lg-8 offset-lg-2">
+        <%= link_to "戻る", :back %>
       </div>
     </div>
   <% end %>

@@ -40,3 +40,5 @@ yarn-debug.log*
 >>>>>>> 04_環境構築
 
 /public/uploads
+
+/.env

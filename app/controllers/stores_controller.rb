@@ -37,9 +37,11 @@ class StoresController < ApplicationController
   def show
     @store = Store.new
     @store = Store.find(params[:id])
+
     @store_articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).limit(3)
     @comment = Comment.new
     @comments = @store.comments.includes(:user).order(created_at: :desc)
+    
   end
 
   def edit; end
@@ -80,7 +82,7 @@ class StoresController < ApplicationController
   private
 
   def store_params
-    params.require(:store).permit(:name, :address, :tel, :closing_day, :closing_hours, :opening_hours, :store_image, :store_image_cache, :area_id, feature_ids: [])
+    params.require(:store).permit(:name, :address, :tel, :closing_day, :closing_hours, :opening_hours, :store_image, :store_image_cache, :area_id, :address2, :opening_hours2, :latitude, :longitude, feature_ids: [])
   end
 
   def find_store

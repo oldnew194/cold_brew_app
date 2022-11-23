@@ -74,3 +74,11 @@ gem 'high_voltage'
 gem 'config', '2.0.0'
 
 gem 'enum_help'
+
+gem 'dotenv-rails'
+
+gem 'google_places'
+
+gem 'geocoder'
+
+gem 'gmaps4rails'
