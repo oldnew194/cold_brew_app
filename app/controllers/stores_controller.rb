@@ -5,9 +5,9 @@ class StoresController < ApplicationController
   def index
     @q = Store.ransack(params[:q])
     @stores = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
-    @stores2 = @q.result(distinct: true).order(created_at: :desc)
+    @stores_nopage = @q.result(distinct: true).order(created_at: :desc)
     @store = Store.new
-    @stores_count = @stores2.count
+    @stores_count = @stores_nopage.count
 
     if params[:feature_ids]
       @stores = []
@@ -37,11 +37,9 @@ class StoresController < ApplicationController
   def show
     @store = Store.new
     @store = Store.find(params[:id])
-
     @store_articles = Article.where(store_id: @store).includes(:user).order(created_at: :desc).limit(3)
     @comment = Comment.new
     @comments = @store.comments.includes(:user).order(created_at: :desc)
-    
   end
 
   def edit; end
@@ -63,8 +61,19 @@ class StoresController < ApplicationController
   def favorites
     @q = current_user.favorites_stores.ransack(params[:q])
     @favorite_stores = @q.result(distinct: true).order(created_at: :desc).page(params[:page])
-    @favorites_stores = @q.result(distinct: true).order(created_at: :desc)
-    @favorites_stores_count = @favorites_stores.count
+    @favorites_stores_nopage = @q.result(distinct: true).order(created_at: :desc)
+    @favorites_stores_count = @favorites_stores_nopage.count
+  end
+
+
+  private
+
+  def store_params
+    params.require(:store).permit(:name, :address, :tel, :closing_day, :closing_hours, :opening_hours, :store_image, :store_image_cache, :area_id, :address2, :opening_hours2, :latitude, :longitude, feature_ids: [])
+  end
+
+  def find_store
+    @store = Store.find(params[:id])
   end
 
   def features_save(feature_list)
@@ -78,15 +87,5 @@ class StoresController < ApplicationController
     self.Features << inspected_feature
     end
   end 
-
-  private
-
-  def store_params
-    params.require(:store).permit(:name, :address, :tel, :closing_day, :closing_hours, :opening_hours, :store_image, :store_image_cache, :area_id, :address2, :opening_hours2, :latitude, :longitude, feature_ids: [])
-  end
-
-  def find_store
-    @store = Store.find(params[:id])
-  end
 
 end
