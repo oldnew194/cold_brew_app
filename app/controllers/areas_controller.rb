@@ -41,8 +41,8 @@ class AreasController < ApplicationController
   def show
     @area = Area.find(params[:id])
     @stores = @area.stores.page(params[:page])
-    @stores2 = @area.stores
-    @areas_count = @stores2.count
+    @stores_count = @area.stores
+    @areas_count = @stores_count.count
   end
 
   private

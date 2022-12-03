@@ -21,8 +21,8 @@ class FeaturesController < ApplicationController
   def show
     @feature = Feature.find(params[:id])
     @stores = @feature.stores.page(params[:page])
-    @stores2 = @feature.stores
-    @features_count = @stores2.count
+    @stores_count = @feature.stores
+    @features_count = @stores_count.count
   end
 
   def update

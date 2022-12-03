@@ -11,7 +11,7 @@ class CoffeesController < ApplicationController
   end
 
   def create
-    @coffee = Coffee.new(coffee_params2)
+    @coffee = Coffee.new(coffee_params_nomerge)
     if @coffee.save
       redirect_to coffees_path, success: t('.success')
     else
@@ -26,7 +26,7 @@ class CoffeesController < ApplicationController
   end
 
   def update
-    if @coffee.update(coffee_params2)
+    if @coffee.update(coffee_params_nomerge)
       redirect_to coffees_path, success: t('defaults.message.updated', item: Coffee.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: Coffee.model_name.human)
@@ -37,9 +37,9 @@ class CoffeesController < ApplicationController
   def show
     @articles = Article.all
     @coffee = Coffee.find(params[:id])
-    @srticles2 = @coffee.articles.page(params[:page])
-    @articles3 = @coffee.articles
-    @coffees_count = @articles3.count
+    @articles_page = @coffee.articles.page(params[:page])
+    @articles_count = @coffee.articles
+    @coffees_count = @articles_count.count
   end
 
   private
@@ -48,7 +48,7 @@ class CoffeesController < ApplicationController
     params.require(:coffee).permit(:producing_area).merge(article_id: params[:article_id])
   end
 
-  def coffee_params2
+  def coffee_params_nomerge
     params.require(:coffee).permit(:producing_area)
   end
 
