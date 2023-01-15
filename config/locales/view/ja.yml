@@ -26,6 +26,7 @@ ja:
     create:
       success: 'ユーザー登録が完了しました'
       fail: 'ユーザー登録に失敗しました'
+    
   user_sessions:
     new:
       title: 'ログイン'
@@ -49,12 +50,14 @@ ja:
     create:
       success: '記事を投稿しました'
       fail: '記事を投稿できませんでした'
-    favorites:
-      title: 'ブックマーク一覧'
-      no_result: 'ブックマーク中の掲示板がありません。'
+    likes:
+      title: 'いいね一覧'
+      no_result: 'いいねした投稿がありません'
+    search:
+      title: 'メーターから探す'
   stores:
     index:
-      title: "店舗一覧"
+      title: '店名から探す'
       no_result: '掲載されている店舗がありません。'
     new:
       name: '店舗名'
@@ -69,6 +72,9 @@ ja:
     favorites:
       title: 'ブックマーク一覧'
       no_result: 'ブックマーク中の店舗がありません。'
+  areas:
+    show:
+      title: "エリアから探す"
   favorites:
     create:
       success: 'ブックマークしました'

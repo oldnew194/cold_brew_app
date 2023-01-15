@@ -3,7 +3,7 @@
 <h3><%= @coffee.producing_area %>産のコーヒー豆</h3>
 <%= @coffees_count %>件見つかりました
 
-<% content_for(:title, t('.title')) %>
+<% content_for(:title, "#{@coffee.producing_area}産のコーヒー豆から探す") %>
 <div class="container pt-3">
   <!-- 掲示板一覧 -->
   <div class="row">
