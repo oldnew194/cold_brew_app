@@ -3,7 +3,7 @@
 <h3><%= @feature.feature_type %> のコーヒーショップ</h3>
 <%= @features_count %>件見つかりました
 
-<% content_for(:title, t('.title')) %>
+<% content_for(:title, "#{@feature.feature_type}から探す") %>
 <div class="container pt-3">
   <!-- 掲示板一覧 -->
   <div class="row">

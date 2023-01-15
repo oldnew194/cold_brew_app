@@ -1,11 +1,9 @@
 <% breadcrumb :user_show, current_user %>
+<% content_for(:title, "マイページ") %>
+
 <div class="container pt-3">
   <div class="row justify-content-center">
-    <% if logged_in? && @user == current_user %>
-      <h1 class="font-weight-normal mt-5 mb-5">マイページ</h1>
-    <% else %>
-      <h1 class="font-weight-normal mt-5 mb-5"><%= current_user.name %>さんのページ</h1>
-    <% end %>
+    <h1 class="font-weight-normal mt-5 mb-5"><%= current_user.name %>さんのページ</h1>
   </div>
 
   <%= render 'profiles/profile' %>
