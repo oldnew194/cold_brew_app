@@ -51,7 +51,7 @@
           <div class="dropdown-menu dropdown-menu-right">
             <%= link_to current_user.name, user_path(current_user), class: 'dropdown-item' %>
             <%= link_to 'ブックマーク一覧', favorites_stores_path, class: 'dropdown-item' %>
-            <%= link_to 'いいね一覧', likes_store_articles_path(current_user), class: 'dropdown-item' %>
+            
             <%= link_to (t 'defaults.logout'), logout_path, class: 'dropdown-item', method: :delete %>
           </div>
         </li>

@@ -8,7 +8,7 @@
         </h4>
         <% if logged_in? %>
           <%= render 'crud_menus', store: @store, article: article if current_user.own?(article) %>
-          <%= render 'like_button',  article: article  %>
+          
         <% end %>
         <ul class="list-inline">
           <li class="list-inline-item">
