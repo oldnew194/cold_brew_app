@@ -43,3 +43,45 @@
 
   #<h4><%= link_to 'グアテマラ', '/coffees/12', class:'link-top' %></h4>
   #<h4><%= link_to 'ベトナム', '/coffees/11', class:'link-top' %></h4>
+
+
+  <%= link_to 'いいね一覧', likes_store_articles_path(current_user), class: 'dropdown-item' %>
+
+  <h3 class="font-weight-normal mt-5 mb-5">いいねした記事</h3>
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <% @likes_articles.each do |like_article| %>
+          <div class="col-sm-12 col-lg-4 mb-3">
+            <div id="like-article-id-<%= like_article.id %>">
+              <div class="card">
+                <%= image_tag like_article.article_image_url, class: 'card-img-top', size: '300x200' %>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= link_to like_article.title, store_article_path(like_article) %>
+                  </h4>
+                  
+                  <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <%= icon 'far', 'user' %>
+                      <%= like_article.user.name %>
+                      <%= icon 'far', 'calendar' %>
+                      <%= l like_article.created_at, format: :long %>
+                      店名：<%= like_article.store.name %>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <!-- ページネーション -->
+        <%= paginate @likes_articles %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'crud_menus', store: @store, article: article if current_user.own?(article) %>
+          <%= render 'like_button',  article: article  %>
+
+          <%= render 'like_button',  article: article  %>
