@@ -1,0 +1,11 @@
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+/Users/user/.rbenv/versions/2.5.1/bin/ruby -I /Users/user/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 extconf.rb
+
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+make DESTDIR\= sitearchdir\=./.gem.20230203-14967-dcban3 sitelibdir\=./.gem.20230203-14967-dcban3 clean
+
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+make DESTDIR\= sitearchdir\=./.gem.20230203-14967-dcban3 sitelibdir\=./.gem.20230203-14967-dcban3
+
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/io-wait-0.3.0/ext/io/wait
+make DESTDIR\= sitearchdir\=./.gem.20230203-14967-dcban3 sitelibdir\=./.gem.20230203-14967-dcban3 install
