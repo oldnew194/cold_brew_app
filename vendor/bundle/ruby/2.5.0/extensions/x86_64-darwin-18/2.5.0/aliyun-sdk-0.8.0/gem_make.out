@@ -1,0 +1,17 @@
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/aliyun-sdk-0.8.0/ext/crcx
+/Users/user/.rbenv/versions/2.5.1/bin/ruby -I /Users/user/.rbenv/versions/2.5.1/lib/ruby/site_ruby/2.5.0 extconf.rb
+creating Makefile
+
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/aliyun-sdk-0.8.0/ext/crcx
+make DESTDIR\= sitearchdir\=./.gem.20230203-19519-rxixsp sitelibdir\=./.gem.20230203-19519-rxixsp clean
+
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/aliyun-sdk-0.8.0/ext/crcx
+make DESTDIR\= sitearchdir\=./.gem.20230203-19519-rxixsp sitelibdir\=./.gem.20230203-19519-rxixsp
+compiling crc64_ecma.c
+compiling crcx.c
+linking shared-object aliyun/crcx.bundle
+ld: warning: -undefined dynamic_lookup may not work with chained fixups
+
+current directory: /Users/user/pf/cold_brew_app/vendor/bundle/ruby/2.5.0/gems/aliyun-sdk-0.8.0/ext/crcx
+make DESTDIR\= sitearchdir\=./.gem.20230203-19519-rxixsp sitelibdir\=./.gem.20230203-19519-rxixsp install
+/usr/bin/install -c -m 0755 crcx.bundle ./.gem.20230203-19519-rxixsp/aliyun
