@@ -82,3 +82,7 @@ gem 'google_places'
 gem 'geocoder'
 
 gem 'gmaps4rails'
+
+gem 'fog-aws'
+
+gem "aws-sdk-s3", require: false 
