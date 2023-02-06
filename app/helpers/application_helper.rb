@@ -1,9 +1,9 @@
 module ApplicationHelper
   def page_title(page_title = '', admin = false)
     base_title = if admin
-                  'ColdBrew-Crew(管理画面)'
+                  'Cold B/Crew(管理画面)'
                 else
-                  'ColdBrew-Crew'
+                  'Cold B/Crew'
                 end
 
     page_title.empty? ? base_title : page_title + ' | ' + base_title
